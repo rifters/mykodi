@@ -881,6 +881,78 @@
         </definition>
     </include>
 
+    <include name="Layout_DialogSelect_FenLight">
+        <param name="selected">false</param>
+        <param name="misc">ListItem.IsSelected</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[selected]">
+                <param name="control">image</param>
+                <include>Texture_Highlight</include>
+            </include>
+            <control type="group">
+                <left>grid_x04</left>
+                <include condition="!$PARAM[selected]" content="Object_IsSelected_Checkmark">
+                    <param name="selected">$PARAM[misc]</param>
+                </include>
+                <include condition="$PARAM[selected]" content="Object_IsSelected_Checkmark_Focus">
+                    <param name="selected">$PARAM[misc]</param>
+                </include>
+                <control type="group">
+                    <left>64</left>
+                    <include content="Object_Control">
+                        <param name="control">label</param>
+                        <include condition="$PARAM[selected]">Color_SelectedText</include>
+                        <right>grid_x04</right>
+                        <textcolor>dialog_fg_70</textcolor>
+                        <selectedcolor>dialog_fg_70</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </include>
+                    <include content="Object_Control">
+                        <param name="control">label</param>
+                        <include condition="$PARAM[selected]">Color_SelectedText</include>
+                        <right>grid_x04</right>
+                        <textcolor>dialog_fg_70</textcolor>
+                        <selectedcolor>dialog_fg_70</selectedcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <align>right</align>
+                        <font>font_main</font>
+                        <visible>!String.IsEmpty(ListItem.Label2)</visible>
+                    </include>
+                    <include content="Object_Control">
+                        <param name="control">image</param>
+                        <left>-64</left>
+                        <width>48</width>
+                        <top>8</top>
+                        <bottom>8</bottom>
+                        <aspectratio align="left">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                        <visible>!String.IsEmpty(ListItem.Art(poster))</visible>
+                    </include>
+                    <include content="Object_Control">
+                        <param name="control">image</param>
+                        <left>-64</left>
+                        <width>48</width>
+                        <top>8</top>
+                        <bottom>8</bottom>
+                        <aspectratio align="left">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+                        <visible>String.IsEmpty(ListItem.Art(poster)) + !String.IsEmpty(ListItem.Art(thumb))</visible>
+                    </include>
+                    <include content="Object_Control">
+                        <param name="control">image</param>
+                        <left>-64</left>
+                        <width>48</width>
+                        <top>8</top>
+                        <bottom>8</bottom>
+                        <aspectratio align="left">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <visible>String.IsEmpty(ListItem.Art(poster)) + String.IsEmpty(ListItem.Art(thumb)) + !String.IsEmpty(ListItem.Icon)</visible>
+                    </include>
+                </control>
+            </control>
+        </definition>
+    </include>
+
     <include name="Layout_ChannelManager">
         <param name="detailed">false</param>
         <param name="selected">false</param>
@@ -2071,6 +2143,16 @@
                         <param name="icon">$INFO[ListItem.Icon]</param>
                         <param name="diffuse">$PARAM[diffuse]</param>
                     </include>
+                    <control type="image">
+                        <texture background="true" diffuse="$PARAM[diffuse]">$INFO[ListItem.Art(poster)]</texture>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <visible>String.IsEmpty(ListItem.Icon) + !String.IsEmpty(ListItem.Art(poster))</visible>
+                    </control>
+                    <control type="image">
+                        <texture background="true" diffuse="$PARAM[diffuse]">$INFO[ListItem.Art(thumb)]</texture>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <visible>String.IsEmpty(ListItem.Icon) + String.IsEmpty(ListItem.Art(poster)) + !String.IsEmpty(ListItem.Art(thumb))</visible>
+                    </control>
                     <include content="Object_Indicator" condition="!$PARAM[variation]">
                         <param name="selected">$PARAM[selected]</param>
                         <param name="shadow">false</param>
