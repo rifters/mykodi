@@ -225,6 +225,7 @@ class Movies:
 				info_tag.setResumePoint(watched_status.get_resume_seconds(progress, duration))
 				set_properties({'WatchedProgress': progress})
 			listitem.setLabel(title)
+			listitem.setLabel2('%s • %s min' % (year, duration) if duration else str(year))
 			listitem.addContextMenuItems(cm)
 			listitem.setArt({'poster': poster, 'fanart': fanart, 'icon': poster, 'clearlogo': clearlogo, 'landscape': landscape, 'thumb': thumb})
 			set_properties({
