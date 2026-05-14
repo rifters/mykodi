@@ -1129,10 +1129,10 @@
                             <texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
                             <aspectratio>keep</aspectratio>
                             <include content="Dimension_Padding"><param name="pad">10</param></include>
-                            <visible>![String.StartsWith(ListItem.Icon,Default)]</visible>
+                            <visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
                         </control>
                         <control type="group">
-                            <visible>[String.StartsWith(ListItem.Icon,Default)]</visible>
+                            <visible>[String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
                             <include content="Object_Control" condition="$PARAM[selected]">
                                 <param name="control">image</param>
                                 <colordiffuse>$VAR[ColorSelected]</colordiffuse>
