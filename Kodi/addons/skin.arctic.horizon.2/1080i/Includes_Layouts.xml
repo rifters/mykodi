@@ -828,6 +828,47 @@
                         <selectedcolor>dialog_fg_70</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
                     </include>
+                    <include content="Object_Control" condition="!$PARAM[detailed]">
+                        <param name="control">label</param>
+                        <include condition="$PARAM[selected]">Color_SelectedText</include>
+                        <right>grid_x04</right>
+                        <textcolor>dialog_fg_70</textcolor>
+                        <selectedcolor>dialog_fg_70</selectedcolor>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <align>right</align>
+                        <font>font_main</font>
+                        <visible>!String.IsEmpty(ListItem.Label2)</visible>
+                    </include>
+                    <include content="Object_Control" condition="!$PARAM[detailed]">
+                        <param name="control">image</param>
+                        <left>-64</left>
+                        <width>48</width>
+                        <top>8</top>
+                        <bottom>8</bottom>
+                        <aspectratio align="left">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <visible>!String.IsEmpty(ListItem.Icon)</visible>
+                    </include>
+                    <include content="Object_Control" condition="!$PARAM[detailed]">
+                        <param name="control">image</param>
+                        <left>-64</left>
+                        <width>48</width>
+                        <top>8</top>
+                        <bottom>8</bottom>
+                        <aspectratio align="left">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Art(poster)]</texture>
+                        <visible>String.IsEmpty(ListItem.Icon) + !String.IsEmpty(ListItem.Art(poster))</visible>
+                    </include>
+                    <include content="Object_Control" condition="!$PARAM[detailed]">
+                        <param name="control">image</param>
+                        <left>-64</left>
+                        <width>48</width>
+                        <top>8</top>
+                        <bottom>8</bottom>
+                        <aspectratio align="left">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+                        <visible>String.IsEmpty(ListItem.Icon) + String.IsEmpty(ListItem.Art(poster)) + !String.IsEmpty(ListItem.Art(thumb))</visible>
+                    </include>
                     <include content="Object_ListItem_Iconic" condition="$PARAM[detailed] + !$PARAM[selected]">
                         <param name="item_h">$PARAM[item_h]</param>
                     </include>
@@ -1016,10 +1057,10 @@
                             <texture background="true" fallback="DefaultFolder.png">$INFO[ListItem.Icon]</texture>
                             <aspectratio>keep</aspectratio>
                             <include content="Dimension_Padding"><param name="pad">10</param></include>
-                            <visible>![String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+                            <visible>![String.StartsWith(ListItem.Icon,Default)]</visible>
                         </control>
                         <control type="group">
-                            <visible>[String.IsEmpty(ListItem.Icon) | String.StartsWith(ListItem.Icon,Default)]</visible>
+                            <visible>[String.StartsWith(ListItem.Icon,Default)]</visible>
                             <include content="Object_Control" condition="$PARAM[selected]">
                                 <param name="control">image</param>
                                 <colordiffuse>$VAR[ColorSelected]</colordiffuse>
@@ -1150,7 +1191,7 @@
                 </include>
                 <include content="Object_Control" condition="!Skin.HasSetting(Views.DisableBigLandscapeText)">
                     <param name="control">group</param>
-                    <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,video) | $EXP[Exp_IsPVRItem]</visible>
+                    <visible>String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,video) | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,set) | $EXP[Exp_IsPVRItem]</visible>
                     <include content="Object_Control" condition="$PARAM[bg_layer]">
                         <param name="control">image</param>
                         <texture border="12" colordiffuse="bbffffff">diffuse/poster_fade.png</texture>
@@ -1351,7 +1392,7 @@
                 </include>
                 <include content="Object_Control">
                     <param name="control">group</param>
-                    <visible>String.IsEqual($PARAM[listitem_dbtype],actor) | String.IsEqual($PARAM[listitem_dbtype],video) | $PARAM[detailed]</visible>
+                    <visible>String.IsEqual($PARAM[listitem_dbtype],actor) | String.IsEqual($PARAM[listitem_dbtype],video) | String.IsEqual($PARAM[listitem_dbtype],movie) | String.IsEqual($PARAM[listitem_dbtype],tvshow) | String.IsEqual($PARAM[listitem_dbtype],set) | String.IsEqual($PARAM[listitem_dbtype],season) | String.IsEqual($PARAM[listitem_dbtype],episode) | $PARAM[detailed]</visible>
                     <include content="Object_Control" condition="$PARAM[bg_layer]">
                         <param name="control">image</param>
                         <texture border="12" colordiffuse="bbffffff">diffuse/poster_fade.png</texture>
