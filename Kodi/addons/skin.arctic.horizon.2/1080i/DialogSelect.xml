@@ -106,7 +106,7 @@
                     </control>
 
                     <control type="group">
-                        <visible>!String.IsEmpty(Container(6).ListItem.Icon)</visible>
+                        <visible>!String.IsEmpty(Container(6).ListItem.Icon) | !String.IsEmpty(Container(6).ListItem.Art(poster)) | !String.IsEmpty(Container(6).ListItem.Art(thumb))</visible>
                         <control type="image">
                             <bottom>0</bottom>
                             <aspectratio aligny="bottom">keep</aspectratio>
@@ -118,6 +118,18 @@
                             <aspectratio aligny="bottom">keep</aspectratio>
                             <texture background="true" colordiffuse="dialog_fg_70">$INFO[Container(6).ListItem.Icon]</texture>
                             <visible>[String.StartsWith(Container(6).ListItem.Icon,Default)]</visible>
+                        </control>
+                        <control type="image">
+                            <bottom>0</bottom>
+                            <aspectratio aligny="bottom">keep</aspectratio>
+                            <texture background="true">$INFO[Container(6).ListItem.Art(poster)]</texture>
+                            <visible>String.IsEmpty(Container(6).ListItem.Icon) + !String.IsEmpty(Container(6).ListItem.Art(poster))</visible>
+                        </control>
+                        <control type="image">
+                            <bottom>0</bottom>
+                            <aspectratio aligny="bottom">keep</aspectratio>
+                            <texture background="true">$INFO[Container(6).ListItem.Art(thumb)]</texture>
+                            <visible>String.IsEmpty(Container(6).ListItem.Icon) + String.IsEmpty(Container(6).ListItem.Art(poster)) + !String.IsEmpty(Container(6).ListItem.Art(thumb))</visible>
                         </control>
                     </control>
                 </control>
