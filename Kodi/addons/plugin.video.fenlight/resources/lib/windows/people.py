@@ -218,7 +218,8 @@ class People(BaseDialog):
 					try: poster = 'https://api.ratingposterdb.com/%s/tmdb/poster-default/%s-%s.jpg?fallback=true' % (self.rpdb_api_key, media, str(item['id'])) + self.rpdb_format
 					except: pass
 				elif not poster: poster = self.empty_poster
-				listitem.setProperties({'name': item[name_key], 'release_date': year, 'vote_average': '%.1f' % item['vote_average'], 'thumbnail': poster, 'tmdb_id': str(tmdb_id)})
+				listitem.setArt({'thumb': poster})
+				listitem.setProperties({'name': item[name_key], 'release_date': year, 'vote_average': '%.1f' % item['vote_average'], 'tmdb_id': str(tmdb_id)})
 				append(tmdb_id)
 				yield listitem
 			except: pass

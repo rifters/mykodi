@@ -47,7 +47,8 @@ class Images():
 						actor_url = ''
 					url_params = {'mode': 'person_data_dialog', 'actor_name': name, 'actor_id': actor_id, 'actor_image': actor_image}
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': actor_poster, 'path': actor_url, 'name': name, 'actor_name': name, 'actor_id': actor_id,
+					listitem.setArt({'thumb': actor_poster})
+					listitem.setProperties({'path': actor_url, 'name': name, 'actor_name': name, 'actor_id': actor_id,
 											'fav_enabled': 'true', 'action': json.dumps(url_params)})
 					yield listitem
 				except: pass
@@ -74,7 +75,8 @@ class Images():
 					else: actor_poster, actor_image = get_icon('empty_person'), get_icon('empty_person')
 					url_params = {'mode': 'person_data_dialog', 'actor_name': name, 'actor_id': actor_id, 'actor_image': actor_image}
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': actor_poster, 'name': name + known_for, 'actor_name': name, 'actor_id': actor_id,
+					listitem.setArt({'thumb': actor_poster})
+					listitem.setProperties({'name': name + known_for, 'actor_name': name, 'actor_id': actor_id,
 											'fav_enabled': 'true', 'action': json.dumps(url_params)})
 					yield listitem
 				except: pass
@@ -104,7 +106,8 @@ class Images():
 					name, actor_poster, actor_image = title.split('|')
 					url_params = {'mode': 'person_data_dialog', 'actor_name': name, 'actor_id': actor_id, 'actor_image': actor_image}
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': actor_poster, 'name': name, 'actor_name': name, 'actor_id': actor_id, 'action': json.dumps(url_params), 'in_favorites': 'true'})
+					listitem.setArt({'thumb': actor_poster})
+					listitem.setProperties({'name': name, 'actor_name': name, 'actor_id': actor_id, 'action': json.dumps(url_params), 'in_favorites': 'true'})
 					yield listitem
 				except: pass
 		image_info = get_favorites('people', 'dummy_arg')
@@ -117,7 +120,8 @@ class Images():
 			for item in all_images:
 				try:
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': item[2], 'path': item[0], 'name': item[1], 'action': image_action, 'image_subject': rootname})
+					listitem.setArt({'thumb': item[2]})
+					listitem.setProperties({'path': item[0], 'name': item[1], 'action': image_action, 'image_subject': rootname})
 					yield listitem
 				except: pass
 		rootname = self.params['rootname']
@@ -139,7 +143,8 @@ class Images():
 			for item in all_images:
 				try:
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': item[2], 'path': item[0], 'name': item[1], 'action': image_action, 'image_subject': actor_name})
+					listitem.setArt({'thumb': item[2]})
+					listitem.setProperties({'path': item[0], 'name': item[1], 'action': image_action, 'image_subject': actor_name})
 					yield listitem
 				except: pass
 		all_images = []
@@ -166,7 +171,8 @@ class Images():
 					image_url = self.tmdb_image_base % ('original', item['file_path'])
 					name = '%s_%s_%03d' % (actor_name, media[name_key], count)
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': thumb_url, 'path': image_url, 'name': name, 'action': image_action, 'image_subject': actor_name})
+					listitem.setArt({'thumb': thumb_url})
+					listitem.setProperties({'path': image_url, 'name': name, 'action': image_action, 'image_subject': actor_name})
 					yield listitem
 				except: pass
 		actor_name, actor_id = self.params['actor_name'], self.params['actor_id']
@@ -184,7 +190,8 @@ class Images():
 			for item in image_info:
 				try:
 					listitem = make_listitem()
-					listitem.setProperties({'thumb': item['thumbnail'], 'path': item['down_url'], 'name': item['name'], 'action': image_action, 'image_subject': key_id})
+					listitem.setArt({'thumb': item['thumbnail']})
+					listitem.setProperties({'path': item['down_url'], 'name': item['name'], 'action': image_action, 'image_subject': key_id})
 					yield listitem
 				except: pass
 		key_id, page_no = self.params['key_id'], self.params['page_no']
@@ -207,7 +214,8 @@ class Images():
 						try: thumb_url = os.path.join(thumbs_path, item)
 						except: thumb_url = image_url
 					else: thumb_url = fallback_image
-					listitem.setProperties({'thumb': thumb_url, 'path': image_url, 'name': item, 'action': image_action, 'delete': 'true'})
+					listitem.setArt({'thumb': thumb_url})
+					listitem.setProperties({'path': image_url, 'name': item, 'action': image_action, 'delete': 'true'})
 					yield listitem
 				except: pass
 		fallback_image = get_icon('empty_person')
