@@ -72,6 +72,7 @@ def build_season_list(params):
 				info_tag.setRating(rating), info_tag.setVotes(votes), info_tag.setMpaa(mpaa), info_tag.setCountries(country), info_tag.setTrailer(trailer)
 				info_tag.setCast([kodi_actor(name=item['name'], role=item['role'], thumbnail=item['thumbnail']) for item in cast])
 				listitem.setLabel(title)
+				listitem.setLabel2('Season %s' % season_number)
 				listitem.setArt({'poster': poster, 'season.poster': poster, 'fanart': show_fanart, 'clearlogo': show_clearlogo, 'landscape': show_landscape, 'thumb': thumb,
 								'icon': show_landscape, 'tvshow.poster': poster, 'tvshow.clearlogo': show_clearlogo})
 				listitem.addContextMenuItems(cm)

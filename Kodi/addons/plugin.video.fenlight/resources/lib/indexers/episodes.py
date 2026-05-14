@@ -76,6 +76,7 @@ def build_episode_list(params):
 					info_tag.setResumePoint(ws.get_resume_seconds(progress, duration))
 					set_properties({'WatchedProgress': progress})
 				listitem.setLabel(display)
+				listitem.setLabel2('%sx%s • %s min' % (season, episode, duration) if duration else '%sx%s' % (season, episode))
 				listitem.addContextMenuItems(cm)
 				listitem.setArt({'poster': show_poster, 'fanart': show_fanart, 'thumb': thumb, 'icon':thumb, 'clearlogo': show_clearlogo, 'landscape': show_landscape,
 								'season.poster': season_poster, 'tvshow.poster': show_poster, 'tvshow.clearlogo': show_clearlogo})
@@ -280,6 +281,7 @@ def build_single_episode(list_type, params={}):
 				info_tag.setResumePoint(ws.get_resume_seconds(progress, duration))
 				set_properties({'WatchedProgress': progress})
 			listitem.setLabel(display)
+			listitem.setLabel2('%sx%s • %s min' % (season, episode, duration) if duration else '%sx%s' % (season, episode))
 			listitem.addContextMenuItems(cm)
 			listitem.setArt({'poster': show_poster, 'fanart': show_fanart, 'thumb': thumb, 'icon':thumb, 'clearlogo': show_clearlogo, 'landscape': show_landscape,
 							'season.poster': season_poster, 'tvshow.poster': show_poster, 'tvshow.clearlogo': show_clearlogo})

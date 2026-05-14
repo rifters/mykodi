@@ -223,8 +223,9 @@ class TVShows:
 						['reload', ('[B]Reload Widgets[/B]', 'RunPlugin(%s)' % self.build_url({'mode': 'kodi_refresh'}))]])
 			cm = self.context_menu(cm)
 			listitem.setLabel(title)
+			listitem.setLabel2('%s • %s' % (year, meta_get('status')) if meta_get('status') else str(year))
 			listitem.addContextMenuItems(cm)
-			listitem.setArt({'poster': poster, 'fanart': fanart, 'icon': poster, 'clearlogo': clearlogo, 'landscape': landscape, 'thumb': thumb, 'icon': landscape,
+			listitem.setArt({'poster': poster, 'fanart': fanart, 'icon': poster, 'clearlogo': clearlogo, 'landscape': landscape, 'thumb': thumb,
 							'tvshow.poster': poster, 'tvshow.clearlogo': clearlogo})
 			info_tag = listitem.getVideoInfoTag(True)
 			info_tag.setMediaType('tvshow'), info_tag.setTitle(title), info_tag.setTvShowTitle(title), info_tag.setOriginalTitle(meta_get('original_title'))
