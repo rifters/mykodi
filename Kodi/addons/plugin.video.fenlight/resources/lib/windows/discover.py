@@ -65,8 +65,8 @@ class Discover(BaseDialog):
 				listitem.setProperty('label1', values['label'])
 				try: listitem.setProperty('label2', self.get_attribute(self, values['display_key']))
 				except: pass
-				try: listitem.setProperty('icon', get_icon(values['icon']))
-				except: listitem.setProperty('icon', get_icon('discover'))
+				try: listitem.setArt({'icon': get_icon(values['icon'])})
+				except: listitem.setArt({'icon': get_icon('discover')})
 				listitem.setProperty('key', key)
 				yield listitem
 		self.add_items(2100, list(builder()))

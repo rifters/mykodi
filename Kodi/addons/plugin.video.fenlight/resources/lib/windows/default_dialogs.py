@@ -82,8 +82,8 @@ class Select(BaseDialog):
 				else: line1 = item['line1']
 				if 'line2' in item: line2 = item['line2']
 				else: line2 = ''
-				if 'icon' in item: listitem.setProperty('icon', item['icon'])
-				else: listitem.setProperty('icon', '')
+				if 'icon' in item: listitem.setArt({'icon': item['icon']})
+				else: listitem.setArt({'icon': ''})
 				listitem.setProperty('line1', line1)
 				listitem.setProperty('line2', line2)
 				yield listitem

@@ -175,7 +175,7 @@ class Extras(BaseDialog):
 					name, role = item['name'], item['role']
 					listitem.setProperty('name', '%s%s' % (name, ' as %s' % role if role else ''))
 					listitem.setProperty('name_lookup', name)
-					listitem.setProperty('thumbnail', item['thumbnail'] or icon)
+					listitem.setArt({'thumb': item['thumbnail'] or icon})
 					listitem.setProperty('info_alert', self.actor_alert)
 					yield listitem
 				except: pass
@@ -212,7 +212,7 @@ class Extras(BaseDialog):
 				listitem.setProperty('name', details['title'])
 				listitem.setProperty('release_date', details['year'])
 				listitem.setProperty('vote_average', '%.1f' % details['rating'])
-				listitem.setProperty('thumbnail', poster)
+				listitem.setArt({'thumb': poster})
 				listitem.setProperty('tmdb_id', str(details['tmdb_id']))
 				listitem.setProperty('info_alert', self.media_alert)
 				item_list_append((listitem, position))
@@ -244,7 +244,7 @@ class Extras(BaseDialog):
 				listitem.setProperty('name', details['title'])
 				listitem.setProperty('release_date', details['year'])
 				listitem.setProperty('vote_average', '%.1f' % details['rating'])
-				listitem.setProperty('thumbnail', poster)
+				listitem.setArt({'thumb': poster})
 				listitem.setProperty('tmdb_id', str(details['tmdb_id']))
 				listitem.setProperty('info_alert', self.media_alert)
 				item_list_append((listitem, position))
@@ -275,7 +275,7 @@ class Extras(BaseDialog):
 				listitem.setProperty('name', details['title'])
 				listitem.setProperty('release_date', details['year'])
 				listitem.setProperty('vote_average', '%.1f' % details['rating'])
-				listitem.setProperty('thumbnail', poster)
+				listitem.setArt({'thumb': poster})
 				listitem.setProperty('tmdb_id', str(details['tmdb_id']))
 				listitem.setProperty('info_alert', self.media_alert)
 				item_list_append((listitem, position))
@@ -343,7 +343,7 @@ class Extras(BaseDialog):
 					likes_insert = '[CR]%s %s' % (likes, 'Likes' if likes > 1 else 'Like') if likes else '' 
 					listitem.setProperty('name', template % (count, batch_replace(item['name'].upper(), replacements), likes_insert, item['user']['ids']['slug'], item['item_count']))
 					listitem.setProperty('content_list', 'all_in_lists')
-					listitem.setProperty('thumbnail', icon)
+					listitem.setArt({'thumb': icon})
 					listitem.setProperty('liked_status', liked)
 					listitem.setProperty('info_alert', self.list_alert)
 					yield listitem
@@ -410,7 +410,7 @@ class Extras(BaseDialog):
 					icon = self.parentsguide_icons[name]
 					listitem.setProperty('name', name)
 					listitem.setProperty('ranking', ranking)
-					listitem.setProperty('thumbnail', icon)
+					listitem.setArt({'thumb': icon})
 					listitem.setProperty('content', item['content'])
 					yield listitem
 				except: pass
@@ -437,7 +437,7 @@ class Extras(BaseDialog):
 					listitem = self.make_listitem()
 					key = item['key']
 					listitem.setProperty('name', item['name'])
-					listitem.setProperty('thumbnail', 'https://img.youtube.com/vi/%s/0.jpg' % key)
+					listitem.setArt({'thumb': 'https://img.youtube.com/vi/%s/0.jpg' % key})
 					listitem.setProperty('key_id', key)
 					yield listitem
 				except: pass
@@ -612,8 +612,9 @@ class Extras(BaseDialog):
 					try: poster = 'https://api.ratingposterdb.com/%s/tmdb/poster-default/%s-%s.jpg?fallback=true' % (self.rpdb_api_key, media, str(item['id'])) + self.rpdb_format
 					except: pass
 				elif not poster: poster = self.empty_poster
+				listitem.setArt({'thumb': poster})
 				listitem.setProperties({'name': item[name_key], 'release_date': year, 'vote_average': '%.1f' % item['vote_average'],
-										'thumbnail': poster, 'tmdb_id': str(tmdb_id), 'info_alert': self.media_alert})
+										'tmdb_id': str(tmdb_id), 'info_alert': self.media_alert})
 				append(tmdb_id)
 				yield listitem
 			except: pass
