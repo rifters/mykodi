@@ -1,0 +1,110 @@
+# Kodi Media Center language file
+msgid ""
+msgstr ""
+"Project-Id-Version: TV Guide\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "#30000"
+msgid "Time Settings"
+msgstr "Time Settings"
+
+msgctxt "#30001"
+msgid "Timezone"
+msgstr "Timezone"
+
+msgctxt "#30003"
+msgid "Guide 1 - URL Settings"
+msgstr "Guide 1 - URL Settings"
+
+msgctxt "#30013"
+msgid "Sports Guide"
+msgstr "Sports Guide"
+
+msgctxt "#30014"
+msgid "Enable Sports Events"
+msgstr "Enable Sports Events"
+
+msgctxt "#30004"
+msgid "Playlist URL (M3U8)"
+msgstr "Playlist URL (M3U8)"
+
+msgctxt "#30005"
+msgid "EPG URL (XMLTV)"
+msgstr "EPG URL (XMLTV)"
+
+msgctxt "#30006"
+msgid "Guide 2 - URL Settings"
+msgstr "Guide 2 - URL Settings"
+
+msgctxt "#30007"
+msgid "Guide 2 - Playlist URL (M3U8)"
+msgstr "Guide 2 - Playlist URL (M3U8)"
+
+msgctxt "#30008"
+msgid "Guide 2 - EPG URL (XMLTV)"
+msgstr "Guide 2 - EPG URL (XMLTV)"
+
+msgctxt "#30009"
+msgid "Switch to Guide 2"
+msgstr "Switch to Guide 2"
+
+msgctxt "#30010"
+msgid "Add to Favorites"
+msgstr "Add to Favorites"
+
+msgctxt "#30011"
+msgid "Remove from Favorites"
+msgstr "Remove from Favorites"
+
+msgctxt "#30012"
+msgid "Favorite Channels"
+msgstr "Favorite Channels"
+
+msgctxt "#30002"
+msgid "Enable Daylight Savings Time (+1 hour)"
+msgstr "Enable Daylight Savings Time (+1 hour)"
+
+msgctxt "#30015"
+msgid "Sports Toggles"
+msgstr "Sports Toggles"
+
+msgctxt "#30016"
+msgid "NBA Settings"
+msgstr "NBA Settings"
+
+msgctxt "#30017"
+msgid "MLB Settings"
+msgstr "MLB Settings"
+
+msgctxt "#30018"
+msgid "Soccer Settings"
+msgstr "Soccer Settings"
+
+msgctxt "#30019"
+msgid "Include NBA Events"
+msgstr "Include NBA Events"
+
+msgctxt "#30020"
+msgid "Include MLB Events"
+msgstr "Include MLB Events"
+
+msgctxt "#30021"
+msgid "Include Soccer Events"
+msgstr "Include Soccer Events"
+
+msgctxt "#30022"
+msgid "Time Format"
+msgstr "Time Format"
+
+msgctxt "#30023"
+msgid "Last Watched"
+msgstr "Last Watched"
+
+msgctxt "#30024"
+msgid "Max Last Watched Channels"
+msgstr "Max Last Watched Channels"
+
+msgctxt "#30025"
+msgid "Clear Last Watched History"
+msgstr "Clear Last Watched History"

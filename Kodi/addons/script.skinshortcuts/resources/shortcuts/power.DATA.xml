@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+	<shortcut>
+		<defaultID>13016</defaultID>
+		<label>[B][COLOR$VAR[C2]]P[/COLOR][COLOR$VAR[C3]]OWER[/COLOR] [COLOR$VAR[C2]]O[/COLOR][COLOR$VAR[C3]]FF[/COLOR] [COLOR$VAR[C2]]S[/COLOR][COLOR$VAR[C3]]YSTEM[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>Powerdown()</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>13013</defaultID>
+		<label>[B][COLOR$VAR[C2]]R[/COLOR][COLOR$VAR[C3]]EBOOT[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>Reset()</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>13011</defaultID>
+		<label>[B][COLOR$VAR[C2]]S[/COLOR][COLOR$VAR[C3]]USPEND[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>Suspend()</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>13010</defaultID>
+		<label>[B][COLOR$VAR[C2]]H[/COLOR][COLOR$VAR[C3]]IBERNATE[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>Hibernate()</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>20126</defaultID>
+		<label>[B][COLOR$VAR[C2]]L[/COLOR][COLOR$VAR[C3]]OG[/COLOR] [COLOR$VAR[C2]]O[/COLOR][COLOR$VAR[C3]]FF[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>System.LogOff</action>
+	</shortcut>
+		<shortcut>
+		<defaultID>13009</defaultID>
+		<label>[B][COLOR$VAR[C2]]Q[/COLOR][COLOR$VAR[C3]]UIT[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>Quit()</action>
+	</shortcut>
+</shortcuts>

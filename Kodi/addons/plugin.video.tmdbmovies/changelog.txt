@@ -1,0 +1,157 @@
+1.1.111
+- Fix PlayIMDB seriale
+
+1.1.110
+- Filtrare surse RD de tip WEB.
+
+1.1.109
+- Viteza marita la click pe sursele AIO Streams
+- Implementat poster+fanart la listele personale Trakt 
+
+1.1.107
+- Mici fixuri
+
+1.1.106
+- Implementat providerii HTTP: YFlix si PrimeSrc
+
+1.1.105
+- Finisari casuta Info Sursa
+- Finisari fereastra cu surse gasite
+
+1.1.104
+- Implementat filtre multiple in casuta cu surse gasite la meniul contextual (click dreapta)
+- Casuta cu Info Sursa, refactorizata
+
+1.1.103
+- Imbunatatit Binge Watch sa fie mai inteligent la alegerea sursei urmatoare
+- Fix Sincronizare "Up Next"
+- Fix Glitch Vizual in sectiunea UP NEXT
+- Fix Resume în "Up Next"
+
+1.1.102
+- Implementat Backup Local la Trakt History
+
+1.1.101
+- Mici finisari
+
+1.1.100
+- Paginare corectata la In Progress TV Shows
+
+1.1.99
+- Viteza masiv imbunatatita la incarcarea sectiunii Next Episodes (Up Next), In Progress (Episoade) si In Progress TV Shows
+
+1.1.97
+- Rezolvat bug-ul vizual (postere în loc de bife/progres) la oprirea redării video
+
+1.1.96
+- Fix Performanta (blocaje de UI si latenta la oprirea/pornirea streamurilor)
+- Redare mai rapida a streamurilor AIO Streams
+- Fix functionare si afisare corecta a cerculetului de resume la filme
+
+1.1.94
+- Adaugat contorul de episoade ramase in "Up Next" si "In Progress"
+
+1.1.93
+- Finisari provideri HTTP
+
+1.1.92
+- Implementat Switch Global ON/OFF pentru sursele HTTP
+
+1.1.91
+- Adaugati Provideri noi pentru surse HTTP
+- Fixed HDHub4u
+
+1.1.90
+- Implementat „Browse Show” si „Browse Season” in meniul contextual pentru Up Next si In Progress Episodes
+- Fallback regex pentru releaseGroup la sursele Torrentio/Comet/Meteor/Mediafusion/AIO când parametrul lipsește din API
+
+1.1.89
+- Fix UI scanare pentru compatibilitate Skin (Estuary/AF3)
+
+1.1.88
+- Implementare Upload Kodi Log pe Pastebin
+- Implementare afisare link Donatii pentru cine vrea sa sustina proiectul
+
+1.1.87
+- UI imbunatatit la scanare: afisare dinamica in timp real a providerilor
+
+1.1.86
+- fix aliniere primul rand in fereastra cu surse
+
+1.1.85
+- Fix imperechere cu opensub si wyzie
+
+1.1.84
+- Adaugare changelog
+
+1.1.83
+- Fix redare youtube din fereastra Extended Info Mod
+
+1.1.82
+- Fix sincronizare punct de resume cu Trakt
+
+1.1.80
+- Fix Vixsrc
+
+1.1.79
+- Implementare Meteor, Torrentio, Comet. Mediafusion
+
+1.1.78
+- Implementare Switch pentru afisare numar seederi 
+- Finisare start play si stop play
+
+1.1.77
+- Fix pentru afisare ”No streams found”, când se incarcau sursele
+
+1.1.76
+- fix indexeri
+
+1.1.75
+- Finisare AIO Streams
+- HDHub4u fix
+
+1.1.74
+- Fix Trakt si returusi
+
+1.1.73
+- Arctiv Fuse 3 fix
+
+1.1.72
+- Adaugare paleta culori la fereastra cu surse
+- Fix Search
+- Fix autoplay
+- Fix clearlogo
+
+1.1.71
+- Adaugare culori la fereastra cu surse
+- Implementare Meniu la Next Episod
+
+1.1.70
+- Implementare NEXT EPISODE
+
+1.1.69
+- Fix afisare surse 4K false
+- Fix resume
+
+1.1.68
+- Implementare addon cleanup la update
+- Fix Smart Sync sa nu ne mai baneze Trakt (429 error)
+- Fix Extended Info
+
+1.1.67
+- Implementare culori noi la fereastra cu surse
+
+1.1.66
+- Fixed dropped episodes
+
+1.1.64
+- Implementare provider HDHub
+- Implementare UP Next si imbunatatiri resume
+
+1.1.63
+- Fix resume episoade
+
+1.1.59
+- Implementat sectiunea ROMANIA
+
+...

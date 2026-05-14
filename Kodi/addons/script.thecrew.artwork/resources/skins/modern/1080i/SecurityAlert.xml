@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <defaultcontrol always="true">503</defaultcontrol>
+    <animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+    <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+    <coordinates>
+        <left>360</left>
+        <top>290</top>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <!-- Background overlay (subtle darkening) -->
+            <control type="image">
+                <description>Background Overlay</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1200</width>
+                <height>500</height>
+                <texture colordiffuse="F0000000">white.png</texture>
+            </control>
+
+            <!-- Glassy band background (modern look) -->
+            <control type="image">
+                <description>Glassy Background Band</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1200</width>
+                <height>500</height>
+                <texture colordiffuse="DD000000">white.png</texture>
+            </control>
+
+            <control type="label" id="101">
+                <description>Header Text</description>
+                <textoffsetx>70</textoffsetx>
+                <left>0</left>
+                <top>30</top>
+                <width>1200</width>
+                <height>70</height>
+                <label>Security Alert</label>
+                <textcolor>FFE74C3C</textcolor>
+                <font>font13_title</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <shadowcolor>FF000000</shadowcolor>
+            </control>
+            <control type="textbox" id="502">
+                <description>Message Text</description>
+                <left>60</left>
+                <top>120</top>
+                <width>1080</width>
+                <height>290</height>
+                <font>font12</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <textcolor>FFF0F0F0</textcolor>
+                <shadowcolor>FF000000</shadowcolor>
+            </control>
+            <control type="button" id="503">
+                <description>OK Button</description>
+                <left>480</left>
+                <top>420</top>
+                <width>240</width>
+                <height>50</height>
+                <font>font12_title</font>
+                <textcolor>FFF0F0F0</textcolor>
+                <textoffsetx>20</textoffsetx>
+                <label>OK</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <texturefocus colordiffuse="$VAR[HighlightBarColor]">Buttons/plainbtn_focus.png</texturefocus>
+                <texturenofocus>Buttons/pixel.png</texturenofocus>
+            </control>
+        </control>
+    </controls>
+</window>

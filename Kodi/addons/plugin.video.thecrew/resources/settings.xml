@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="32310">
+        <setting id="appearance.alt" type="action" label="32311" default="-" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=artwork)" visible="!System.HasAddon(script.thecrew.artwork)" />
+        <setting id="appearance.1" type="select" label="32311" values="modern|thecrew" default="modern" visible="true" />
+        <setting id="indicators.alt" type="enum" label="32313" lvalues="32314|32315" default="1" visible="!eq(-1,)" />
+        <setting id="indicators" type="enum" label="32313" lvalues="32314" default="0" visible="eq(-2,)" />
+        <setting id="api.language" type="select" label="32316" values="AUTO|Bulgarian|Chinese|Croatian|Czech|Danish|Dutch|English|Finnish|French|German|Greek|Hebrew|Hungarian|Italian|Japanese|Korean|Norwegian|Polish|Portuguese|Romanian|Russian|Serbian|Slovak|Slovenian|Spanish|Swedish|Thai|Turkish|Ukrainian" default="AUTO" />
+        <setting id="providers.lang" type="select" label="32360" values="English|German|German+English|French|French+English|Polish|Polish+English|Korean|Korean+English|Russian|Russian+English|Spanish|Spanish+English|Italian|Italian+English|Greek|Greek+English" default="English" />
+        <setting id="fanart" type="bool" label="32318" default="true" />
+        <setting id="fanart.quality" type="enum" label="32092" enable="eq(-1,true)" lvalues="32093|32094|32095|32096" default="2" />
+        <setting id="fanart.quality.action" type="action" label="32306" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=setfanartquality)" visible="false" />
+        <setting id="page.item.limit" type="slider" label="90191" default="25" range="10,60" option="int" />
+        <setting type="lsep" label="32376" />
+        <setting id="max.threads" type="slider" label="32377" enable="true" default="25" range="5,50" option="int" />
+        <setting id="max.threads.warning" type="text" label="32378" enable="false" />
+        <setting id="max.threads.warning.2" type="text" label="32379" enable="false" />
+        <setting id="max.threads.warning.3" type="text" label="32380" enable="false" />
+        <setting type="lsep" label="90183" />
+        <setting id="flatten.tvshows" type="bool" label="32317" default="false" />
+        <setting id="showunaired" type="bool" label="32570" default="true" />
+        <setting id="unaired.identify" type="enum" label="90003" lvalues="32753|32754|32755|32756|32757|32758|32759|32760|32761|32762" default="1" />
+        <setting id="tv.specials" type="bool" label="90116" default="true" />
+        <setting id="tv.widget.alt" type="enum" label="32325" lvalues="32302|32326|32327|32328" default="2" visible="!eq(-12,)" />
+        <setting id="tv.widget" type="enum" label="32325" lvalues="32302|32326" default="1" visible="eq(-13,)" />
+        <setting id="movie.widget" type="enum" label="32320" lvalues="32302|32321|32322|32323|32324|32580" visible="false" default="1" />
+    </category>
+    <category label="32621">
+        <setting type="lsep" label="32102" />
+        <setting id="silent.boot" type="bool" label="32103" default="false" />
+        <setting id="silent.boot.warning" type="text" label="32104" enable="false" />
+        <setting label="90167" type="lsep" />
+        <setting id="navi.personal.list" type="bool" label="90169" default="false" />
+        <setting id="personal.list" type="text" label="90168" enable="!eq(-1,false)" default="https://" />
+        <setting type="lsep" label="90034" />
+        <setting id="adult_pw" type="text" label="90033" default="Enter Here!" />
+        <setting type="lsep" label="Parental Controls" />
+        <setting id="adult_section_name" type="text" label="Adult Section Display Name" default="Adult Content" />
+        <setting id="adult_pin_enabled" type="bool" label="[PIN Protection Status]" enable="false" default="false" />
+        <setting id="adult_pin_enable_action" type="action" label="Enable PIN Protection" visible="eq(-1,false)" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=enable_adult_pin)" />
+        <setting id="adult_pin_disable_action" type="action" label="Disable PIN Protection (requires PIN)..." visible="eq(-2,true)" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=disable_adult_pin)" />
+        <setting id="adult_pin_setup" type="action" label="Set Adult PIN..." option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=setup_adult_pin)" />
+        <setting id="adult_pin_remove" type="action" label="Remove PIN (requires current PIN)..." option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=remove_adult_pin)" />
+        <setting id="adult_pin_reset" type="action" label="Reset PIN (requires master key)..." option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=reset_adult_pin)" />
+        <setting id="adult_pin" type="text" label="[Current PIN - do not edit manually]" option="hidden" enable="false" default="" visible="false" />
+        <setting type="lsep" label="90137" />
+
+        <setting id="navi.halloween" type="bool" label="30201" default="true" />
+        <setting id="navi.holidays" type="bool" label="90157" default="true" />
+        <setting id="navi.movies" type="bool" label="32001" default="true" />
+        <setting id="navi.tvshows" type="bool" label="32002" default="true" />
+        <setting id="navi.sports" type="bool" label="90006" default="true" />
+        <setting id="navi.kids" type="bool" label="Kids (Family-Friendly)" default="true" />
+        <setting id="navi.1clicks" type="bool" label="90011" default="true" />
+        <setting id="navi.purplehat" type="bool" label="90189" default="true" />
+        <setting type="lsep" label="32001" />
+        <setting id="navi.247movies" type="bool" label="90014" default="true" />
+        <setting id="navi.collections" type="bool" label="32000" default="true" />
+        <setting id="navi.traktlist" type="bool" label="90051" default="true" />
+        <setting id="navi.moviegenre" type="bool" label="32011" default="true" />
+        <setting id="navi.movieyears" type="bool" label="32012" default="true" />
+        <setting id="navi.moviepersons" type="bool" label="32013" default="true" />
+        <setting id="navi.movielanguages" type="bool" label="32014" default="true" />
+        <setting id="navi.moviecerts" type="bool" label="32015" default="true" />
+        <setting id="navi.movietrending" type="bool" label="32017" default="true" />
+        <setting id="navi.moviepopular" type="bool" label="32018" default="true" />
+        <setting id="navi.disneym" type="bool" label="90166" default="true" />
+        <setting id="navi.movieviews" type="bool" label="32019" default="true" />
+        <setting id="navi.movieboxoffice" type="bool" label="32020" default="true" />
+        <setting id="navi.movieoscars" type="bool" label="32021" default="true" />
+        <setting id="navi.movietheaters" type="bool" label="32022" default="true" />
+        <setting id="navi.moviewidget" type="bool" label="32005" default="true" />
+        <setting id="navi.traktrecommendations" type="bool" label="90238" default="true" />
+        <setting id="navi.traktpopular" type="bool" label="90239" default="true" />
+        <setting id="navi.traktanticipated" type="bool" label="90240" default="true" />
+        <setting id="navi.traktplayed" type="bool" label="90241" default="true" />
+        <setting id="navi.traktwatched" type="bool" label="90242" default="true" />
+        <setting id="navi.traktcollected" type="bool" label="90243" default="true" />
+        <setting id="navi.traktrecommendations_tv" type="bool" label="90244" default="true" />
+        <setting id="navi.traktpopular_tv" type="bool" label="90245" default="true" />
+        <setting id="navi.traktanticipated_tv" type="bool" label="90246" default="true" />
+        <setting id="navi.traktplayed_tv" type="bool" label="90247" default="true" />
+        <setting id="navi.traktwatched_tv" type="bool" label="90248" default="true" />
+        <setting id="navi.traktcollected_tv" type="bool" label="90249" default="true" />
+        <setting type="lsep" label="32002" />
+        <setting id="navi.tvGenres" type="bool" label="32011" default="true" />
+        <setting id="navi.tvNetworks" type="bool" label="32016" default="true" />
+        <setting id="navi.tvLanguages" type="bool" label="32014" default="true" />
+        <setting id="navi.tvCertificates" type="bool" label="32015" default="true" />
+        <setting id="navi.tvTrending" type="bool" label="32017" default="true" />
+        <setting id="navi.tvPopular" type="bool" label="32018" default="true" />
+        <setting id="navi.disney" type="bool" label="90166" default="true" />
+        <setting id="navi.netflix" type="bool" label="90218" default="true" />
+        <setting id="navi.applet" type="bool" label="90170" default="true" />
+        <setting id="navi.tvRating" type="bool" label="32023" default="true" />
+        <setting id="navi.tvViews" type="bool" label="32019" default="true" />
+        <setting id="navi.tvAiring" type="bool" label="32024" default="true" />
+        <setting id="navi.tvActive" type="bool" label="32025" default="true" />
+        <setting id="navi.tvPremier" type="bool" label="32026" default="true" />
+        <setting id="navi.tvTmdb" type="bool" label="90210" default="true" />
+
+
+        <setting id="navi.tvAdded" type="bool" label="32006" default="true" />
+        <setting id="navi.tvCalendar" type="bool" label="32027" default="true" />
+    </category>
+    <category label="32330">
+        <setting id="progress.dialog" type="enum" label="32335" lvalues="32336|32337" default="0" />
+        <setting id="hosts.mode" type="enum" label="32331" lvalues="32332|32333|32064" default="1" />
+        <setting id="hosts.quality" type="enum" label="32339" values="4K|1440p|1080p|720p|480p" default="0" />
+        <setting id="hosts.screener" type="bool" label="32361" default="true" />
+        <setting id="scrapers.timeout.1" type="slider" label="32312" default="30" range="10,60" option="int" />
+        <setting type="lsep" label="Source Cache" />
+        <setting id="sources.cache.enabled" type="bool" label="Enable Source Cache" default="true" />
+        <setting id="sources.cache.duration" type="slider" label="Cache Duration (minutes)" enable="eq(-1,true)" default="15" range="5,60" option="int" />
+        <setting type="lsep" label="32330" />
+        <setting id="returned.sources" type="slider" label="Returned Sources" enable="true" default="100" range="1,1000" option="int" />
+        <setting id="max.limit.sources" type="slider" label="Max Limit Sources" enable="true" default="25" range="1,250" option="int" />
+        <setting id="sourcelist.multiline" type="bool" label="90119" default="false" />
+        <setting id="sources.compact" type="bool" label="32699" default="false" />
+        <setting id="sources.pack.name" type="bool" label="Show Source Name in Label (line 2)" default="false" />
+        <setting id="sources.extrainfo" type="bool" label="32587" default="true" visible="false" />
+        <setting id="hosts.captcha" type="bool" label="32341" default="true" />
+        <setting type="lsep" label="32338" />
+        <setting id="debrid.only" type="bool" label="90120" default="" />
+        <setting id="prem.identify" type="enum" label="32763" lvalues="32753|32754|32755|32756|32757|32758|32759|32760|32761|32762" default="3" />
+        <setting id="preemptive.termination" type="bool" label="90121" default="false" />
+        <setting id="preemptive.limit" type="slider" label="90122" default="10" range="1,50" option="int" />
+        <setting id="remove.dups" type="bool" label="32090" default="true" />
+        <setting id="HEVC" type="bool" label="32363" default="true" />
+        <setting type="lsep" label="Result Validation (NEW - Test First!)" />
+        <setting id="filter.year" type="bool" label="Filter by Year (±1)" default="false" />
+        <setting id="filter.title" type="bool" label="Filter by Title Match" default="false" />
+        <setting id="filter.undesirables" type="bool" label="Filter Spam/Foreign Domains" default="true" />
+        <setting type="action" label="90230" subsetting="true" enable="eq(-1,true)" action="RunPlugin(plugin://plugin.video.thecrew/?action=undesirablesSelect)" />
+        <setting type="action" label="Define Extra Keywords" subsetting="true" enable="eq(-2,true)" action="RunPlugin(plugin://plugin.video.thecrew/?action=undesirablesInput)" />
+        <setting type="action" label="Remove User Keywords" subsetting="true" enable="eq(-3,true)" action="RunPlugin(plugin://plugin.video.thecrew/?action=undesirablesUserRemove)" />
+        <setting type="action" label="Clear ALL User Keywords" subsetting="true" enable="eq(-4,true)" action="RunPlugin(plugin://plugin.video.thecrew/?action=undesirablesUserRemoveAll)" />
+        <setting id="filter.extras" type="bool" label="Filter Extras/Samples" default="true" />
+        <setting id="results.per_quality_limit" type="slider" label="Max Sources Per Quality (0=Unlimited)" default="0" range="0,1,25" option="int" />
+        <setting type="text" label="[COLOR grey]Prevents imbalance (e.g., 100 SD vs 5 4K). Set 0 for unlimited.[/COLOR]" enable="false" />
+        <setting id="validation.info" type="text" label="[COLOR yellow]New experimental filters - Enable after testing[/COLOR]" enable="false" />
+        <setting id="hosts.sort.provider" type="bool" label="32342" default="false" />
+        <setting id="autoplay.sd" type="bool" label="32340" default="false" />
+        <setting type="lsep" label="32635" />
+        <setting id="torrent.enabled" type="bool" label="32636" default="true" />
+        <setting id="torrent.identify" type="enum" label="32634" enable="eq(-1,true)" lvalues="32753|32754|32755|32756|32757|32758|32759|32760|32761|32762" default="7" />
+        <setting id="torrent.min.seeders" type="slider" label="32638" enable="eq(-2,true)" default="10" range="1,100" option="int" />
+        <setting id="torrent.sort.the.crew" type="bool" label="32639" enable="eq(-3,true)" default="true" />
+        <setting id="torrent.resolveurl" type="action" label="32637" enable="eq(-4,true)" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=ResolveUrlTorrent&amp;query=1.58)" />
+        <setting id="check.torr.cache" type="bool" label="32632" default="false" />
+        <setting id="remove.uncached" type="bool" label="32091" default="false" enable="eq(-1,true)" subsetting="true" />
+        <setting type="lsep" label="32343" />
+        <setting id="bookmarks" type="bool" label="32344" default="true" />
+        <setting id="bookmarks.auto" type="bool" label="90124" default="false" enable="!eq(-1,false)" />
+    </category>
+    <category label="90226">
+        <setting type="lsep" label="32737" />
+        <setting id="upnext.enabled" type="bool" label="32721" default="true" />
+        <setting id="upnext.trigger_percent" type="slider" label="32722" enable="eq(-1,true)" default="97" range="80,1,99" option="int"  />
+        <setting id="upnext.end_seconds" type="slider" label="32725" enable="eq(-2,true)" default="0" range="0,5,120" option="int" />
+        <setting id="upnext.countdown_seconds" type="slider" label="32723" enable="eq(-3,true)" default="15" range="5,1,60" option="int" />
+        <setting id="upnext.autoplay" type="bool" label="32724" enable="eq(-4,true)" default="true" />
+        <setting type="lsep" label="32736" />
+        <setting id="tvevening.show_playlist" type="bool" label="32731" default="true" />
+        <setting id="tvevening.gap_countdown" type="slider" label="32732" default="60" range="10,5,300" option="int" />
+        <setting id="tvevening.randomize" type="bool" label="32733" default="false" />
+        <setting id="tvevening.source_count" type="slider" label="32734" default="15" range="5,1,30" option="int" />
+        <setting id="tvevening.min_episode_age" type="slider" label="32738" default="48" range="0,6,168" option="int" />
+    </category>
+    <category label="32107">
+        <setting type="lsep" label="32108" />
+        <setting id="cocoscrapers.enabled" type="bool" label="32109" default="true" />
+        <setting id="cocoscrapers.info" type="text" label="32110" enable="false" />
+        <setting id="cocoscrapers.info2" type="text" label="32116" enable="true" visible="System.HasAddon(script.module.cocoscrapers)" />
+        <setting id="cocoscrapers.info3" type="text" label="32117" enable="true" visible="!System.HasAddon(script.module.cocoscrapers)" />
+        <setting type="lsep" label="32111" />
+        <setting id="gearsscrapers.enabled" type="bool" label="32112" default="true" />
+        <setting id="gearsscrapers.info" type="text" label="32113" enable="false" />
+        <setting id="gearsscrapers.info2" type="text" label="32114" enable="true" visible="System.HasAddon(script.module.gearsscrapers)" />
+        <setting id="gearsscrapers.info3" type="text" label="32115" enable="true" visible="!System.HasAddon(script.module.gearsscrapers)" />
+        <setting type="lsep" label="32118" />
+        <setting id="viperscrapers.enabled" type="bool" label="32119" default="true" />
+        <setting id="viperscrapers.info" type="text" label="32120" enable="false" />
+        <setting id="viperscrapers.info2" type="text" label="32121" enable="true" visible="System.HasAddon(script.module.viperscrapers)" />
+        <setting id="viperscrapers.info3" type="text" label="32122" enable="true" visible="!System.HasAddon(script.module.viperscrapers)" />
+
+    </category>
+    <category label ="32315">
+        <setting type="lsep" label="32315" />
+        <setting id="bookmarks.trakt" type="bool" label="90123" default="false" />
+        <setting id="lists.widget" type="enum" label="32329" lvalues="32302|32301" default="1" />
+        <setting id="prgr.sortorder" type="enum" label="32584" lvalues="32585|32586" default="1" />
+        <setting type="lsep" label="90183" />
+        <setting id="autoTraktOnStart" type="bool" label="90125" default="False" />
+        <setting id="schedTraktTime" type="slider" label="90126" default="0" range="0,24" option="int" />
+        <setting type="sep" />
+        <setting id="trakt.scrobble" type="bool" label="90222" default="true" />
+        <setting id="trakt.scrobble.warning" type="text" label="90221" enable="false" />
+        <setting id="trakt.scrobble.warning.2" type="text" label="" enable="false" />
+        <setting type="lsep" label="90127" />
+        <setting id="trakt.auth" type="text" default="" visible="hidden"/>
+        <setting type="action" label="32306" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=authTrakt)" />
+        <setting id="trakt.user" type="text" label="32130" default="" visible="true" enable="false" />
+        <setting id="trakt.token" type="text" visible="hidden" label="" default="" />
+        <setting id="trakt.refresh" type="text" visible="hidden" label="" default="" />
+        <setting id="trakt.expires_at" type="text" visible="hidden" label="" default="" />
+        <setting id="trakt.shows.last_modified" type="text" visible="hidden" label="" default="" />
+        <setting id="trakt.shows.etag" type="text" visible="hidden" label="" default="" />
+        <setting id="trakt.movies.last_modified" type="text" visible="hidden" label="" default="" />
+        <setting id="trakt.movies.etag" type="text" visible="hidden" label="" default="" />
+    </category>
+    <category label="32127">
+        <setting type="lsep" label="32127" />
+        <setting id="orion.installed" type="text" label="32131" default="" enable="true" />
+        <setting id="orion.boolinstalled" type="bool" label="32131" default="false" visible="false" enable="false" />
+        <setting type="lsep" label="90127" />
+        <setting id="orion.username" type="text" label="32132" default="" visible="!eq(-2,false)" enable="true" />
+        <setting id="orion.package" type="text" label="32133" default="" visible="!eq(-3,false)" enable="true" />
+        <setting id="orion.expiration" type="text" label="32134" default="" visible="!eq(-4,false)" enable="true" />
+        <setting type="sep" visible="!eq(-5,false)" />
+        <setting id="orion.inline" type="bool" label="32135"  visible="!eq(-6,false)" enable="true" default="true"/>
+    </category>
+    <category label="32346">
+        <setting type="lsep" label="API Keys" />
+        <setting type="text" label="32582" enable="false" />
+        <setting type="lsep" label="32124" enable="false" />
+        <setting id="trakt.client_id" type="text" option="hidden" label="32125" default="" />
+        <setting id="trakt.client_secret" type="text" option="hidden" label="32126" default="" />
+        <setting type="lsep" label="32129" enable="false" />
+        <setting type="lsep" label="32583" default="" />
+        <setting id="fanart.tv.user" type="text" label="32309" default="" />
+        <setting type="sep" />
+        <setting type="lsep" label="TMDb" />
+        <setting id="tm.user" type="text" option="hidden" label="32309" default="" />
+        <setting type="sep" />
+        <setting type="lsep" label="IMDb" />
+        <setting id="imdb.user" type="text" label="32303" default="" />
+        <setting type="sep" />
+        <setting type="lsep" label="TVDb" />
+        <setting id="tvdb.user" type="text" option="hidden" label="32303" default="" />
+        <setting type="sep" />
+        <setting type="lsep" label="Easynews"/>
+        <setting id="easynews.user" type="text" label="Easynews Username" default=""/>
+        <setting id="easynews.password" type="text" label="Easynews Password" default=""/>
+    </category>
+    <!--Clear-->
+    <category label="32345">
+</category>
+    <category label="90004">
+</category>
+    <category label="90005">
+</category>
+    <!--END CLEAR-->
+    <category label="32541">
+        <setting id="library.playback_integration" type="bool" label="90255" default="false" />
+        <setting type="text" label="90256" enable="false" />
+        <setting type="text" label="90257" enable="false" />
+        <setting type="lsep" label="[CR]" />
+        <setting id="library.movie" type="folder" label="32349" default="special://userdata/addon_data/plugin.video.thecrew/Movies" />
+        <setting id="library.tv" type="folder" label="90183" default="special://userdata/addon_data/plugin.video.thecrew/TVShows" />
+        <setting type="action" label="32558" action="RunPlugin(plugin://plugin.video.thecrew/?action=updateLibrary&amp;query=tool)" />
+        <setting type="sep" />
+        <setting id="library.service.update" type="bool" label="32545" default="true" />
+        <setting id="library.service.notification" type="bool" label="32546" default="true" />
+        <setting id="library.service.warning" type="text" label="32542" enable="false" />
+        <setting type="sep" />
+        <setting id="library.update" type="bool" label="32547" default="true" />
+        <setting id="library.check" type="bool" label="32548" default="true" />
+        <setting id="library.importdelay" type="bool" label="24HR delay before import" default="false" />
+        <setting type="sep" />
+        <setting id="library.check_movie" type="bool" label="32549" default="false" />
+        <setting id="library.check_episode" type="bool" label="32550" default="false" />
+        <setting id="library.include_unknown" type="bool" label="32565" default="true" />
+    </category>
+    <category label="32347">
+        <setting id="downloads" type="bool" label="32348" default="false" />
+        <setting type="sep" />
+        <setting id="movie.download.path" type="folder" label="32349" enable="!eq(-2,false)" default="" />
+        <setting id="tv.download.path" type="folder" label="90183" enable="!eq(-3,false)" default="" />
+        <setting type="lsep" label="[CR]" />
+        <setting id="download.warning.1" type="text" label="32351" enable="false" visible="!eq(-5,true)" />
+        <setting id="download.warning.2" type="text" label="32352" enable="false" visible="!eq(-6,true)" />
+    </category>
+    <category label="32353">
+        <setting id="subtitles" type="bool" label="32354" default="false" />
+        <setting type="sep" />
+        <setting id="subtitles.utf" type="bool" label="32355" enable="!eq(-2,false)" default="false" />
+        <setting type="sep" />
+        <setting id="subtitles.lang.1" type="select" label="32356" values="Afrikaans|Albanian|Arabic|Armenian|Basque|Bengali|Bosnian|Breton|Bulgarian|Burmese|Catalan|Chinese|Croatian|Czech|Danish|Dutch|English|Esperanto|Estonian|Finnish|French|Galician|Georgian|German|Greek|Hebrew|Hindi|Hungarian|Icelandic|Indonesian|Italian|Japanese|Kazakh|Khmer|Korean|Latvian|Lithuanian|Luxembourgish|Macedonian|Malay|Malayalam|Manipuri|Mongolian|Montenegrin|Norwegian|Occitan|Persian|Polish|Portuguese|Portuguese(Brazil)|Romanian|Russian|Serbian|Sinhalese|Slovak|Slovenian|Spanish|Swahili|Swedish|Syriac|Tagalog|Tamil|Telugu|Thai|Turkish|Ukrainian|Urdu" enable="!eq(-4,false)" default="English" />
+        <setting id="subtitles.lang.2" type="select" label="32357" values="Afrikaans|Albanian|Arabic|Armenian|Basque|Bengali|Bosnian|Breton|Bulgarian|Burmese|Catalan|Chinese|Croatian|Czech|Danish|Dutch|English|Esperanto|Estonian|Finnish|French|Galician|Georgian|German|Greek|Hebrew|Hindi|Hungarian|Icelandic|Indonesian|Italian|Japanese|Kazakh|Khmer|Korean|Latvian|Lithuanian|Luxembourgish|Macedonian|Malay|Malayalam|Manipuri|Mongolian|Montenegrin|Norwegian|Occitan|Persian|Polish|Portuguese|Portuguese(Brazil)|Romanian|Russian|Serbian|Sinhalese|Slovak|Slovenian|Spanish|Swahili|Swedish|Syriac|Tagalog|Tamil|Telugu|Thai|Turkish|Ukrainian|Urdu" enable="!eq(-5,false)" default="English" />
+        <setting type="lsep" label="32364" />
+        <setting id="OSuser" type="text" label="32365" default="" />
+        <setting id="OSpass" type="text" label="32307" default="" option="hidden" />
+        <setting id="OSapikey" type="text" label="OpenSubtitles API Key (get from opensubtitles.com)" default="" />
+        <setting type="lsep" label="[CR]" />
+        <setting type="lsep" label="32358" />
+        <setting type="lsep" label="32359" />
+    </category>
+    <category label="32616">
+        <setting id="addon_debug" type="bool" label="Enable Debug" default="false" />
+        <setting id="debug.location" type="enum" label="32617" lvalues="32618|32619" default="1" />
+        <setting type="lsep" label="Developers only!" />
+        <setting id="dev_pw" type="text" label="Dev Password" default="" option="hidden" />
+        <setting id="disable.orion" type="bool" label="Disable Orion" default="false" visible="!eq(-4,false)" enable="true" />
+        <setting type="lsep" label="Warning" />
+        <setting id="debug.warning" type="text" label="32097" enable="false" />
+        <setting id="module_base" type="text" label="" enable="false" />
+        <setting id="plugin_base" type="text" label="" enable="false" />
+        <setting id="last_version_announcement" type="text" label="" enable="false" visible="false" default="" />
+    </category>
+    <category label="The Crew: Uploads">
+        <setting type="lsep" label="Anonymous Log Uploads" />
+        <setting type="text" label="Logs are uploaded anonymously for troubleshooting" enable="false" />
+        <setting type="sep" />
+        <setting type="action" label="Upload Kodi Log" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=upload_kodi_log)" />
+        <setting type="action" label="Upload The Crew Log" option="close" action="RunPlugin(plugin://plugin.video.thecrew/?action=upload_crew_log)" />
+        <setting type="sep" />
+        <setting type="text" label="Upload link will be shown after successful upload" enable="false" />
+    </category>
+</settings>

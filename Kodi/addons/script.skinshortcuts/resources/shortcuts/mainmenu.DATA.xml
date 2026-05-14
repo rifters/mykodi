@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+	<shortcut>
+		<defaultID>pictures</defaultID>
+		<label>[COLOR$VAR[C1]][B]P[/B][/COLOR]ictures</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultPicture.png</icon>
+		<thumb />
+		<action>ActivateWindow(Pictures,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>music</defaultID>
+		<label>[COLOR$VAR[C1]][B]M[/B][/COLOR]usic</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAudio.png</icon>
+		<thumb />
+		<action>ActivateWindow(Music,files)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>movies</defaultID>
+		<label>[COLOR$VAR[C1]][B]M[/B][/COLOR]ovies</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultMovies.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://movies/titles/,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>tvshows</defaultID>
+		<label>[COLOR$VAR[C1]][B]T[/B][/COLOR]v[COLOR$VAR[C1]][B]S[/B][/COLOR]hows</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultTVShows.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>livetv</defaultID>
+		<label>[COLOR$VAR[C1]][B]L[/B][/COLOR]ive[COLOR$VAR[C1]][B]T[/B][/COLOR]v</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAddonPVRClient.png</icon>
+		<thumb />
+		<action>ActivateWindow(TVChannels)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>videos</defaultID>
+		<label>[COLOR$VAR[C1]][B]V[/B][/COLOR]ideos</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultVideo.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,root)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>programs</defaultID>
+		<label>[COLOR$VAR[C1]][B]P[/B][/COLOR]rograms</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAddon.png</icon>
+		<thumb />
+		<action>ActivateWindow(1133)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>games</defaultID>
+		<label>[COLOR$VAR[C1]][B]G[/B][/COLOR]ames</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultGames.png</icon>
+		<thumb />
+		<action>ActivateWindow(Games)</action>
+		<visible>System.GetBool(gamesgeneral.enable)</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>settings</defaultID>
+		<label>[COLOR$VAR[C1]][B]S[/B][/COLOR]ettings</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAddonService.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>search</defaultID>
+		<label>[COLOR$VAR[C1]][B]S[/B][/COLOR]earch</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAddonsSearch.png</icon>
+		<thumb />
+		<action>ActivateWindow(1129)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>playdisc</defaultID>
+		<label>[COLOR$VAR[C1]][B]P[/B][/COLOR]lay[COLOR$VAR[C1]][B]D[/B][/COLOR]isc</label>
+		<label2 />
+		<icon>special://skin/extras/icons/Disc.png</icon>
+		<thumb />
+		<action>PlayDisc</action>
+		<visible>System.HasMediaDVD</visible>
+	</shortcut>
+	<shortcut>
+		<defaultID>power</defaultID>
+		<label>[COLOR$VAR[C1]][B]P[/B][/COLOR]ower</label>
+		<label2 />
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>ActivateWindow(shutdownmenu)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>favourites</defaultID>
+		<label>[COLOR$VAR[C1]][B]F[/B][/COLOR]avourites</label>
+		<label2 />
+		<icon>special://skin/extras/icons/Favorites.png</icon>
+		<thumb />
+		<action>ActivateWindow(FavouritesBrowser)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>weather</defaultID>
+		<label>[COLOR$VAR[C1]][B]W[/B][/COLOR]eather</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultAddonWeather.png</icon>
+		<thumb />
+		<action>ActivateWindow(Weather)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>musicvideos</defaultID>
+		<label>[COLOR$VAR[C1]][B]M[/B][/COLOR]usic[COLOR$VAR[C1]][B]V[/B][/COLOR]ideos</label>
+		<label2 />
+		<icon>special://skin/extras/icons/DefaultMusicVideos.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,videodb://musicvideos/titles/,return)</action>
+	</shortcut>
+</shortcuts>

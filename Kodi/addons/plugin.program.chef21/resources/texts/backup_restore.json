@@ -1,0 +1,32 @@
+{
+    "favourites.xml": {
+        "name": "Favourites",
+        "setting": "savefavs",
+        "path": "user_path"
+    },
+    "weather.openmeteo": {
+        "name": "Weather-Open Meteo",
+        "setting": "savedata",
+        "path": "data_path"
+    },
+    "weather.gismeteo": {
+        "name": "Weather-Gismeteo",
+        "setting": "savedata",
+        "path": "data_path"
+    },
+    "weather.multi": {
+        "name": "Weather-MultiWeather",
+        "setting": "savedata",
+        "path": "data_path"
+    },
+    "script.module.accountmgr": {
+        "name": "Account Manager",
+        "setting": "savedata",
+        "path": "data_path"
+    },
+    "plugin.video.youtube": {
+        "name": "YouTube",
+        "setting": "saveyoutube",
+        "path": "data_path"
+    }
+}

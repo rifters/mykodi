@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <animation effect="fade" time="300">WindowOpen</animation>
+    <animation effect="fade" time="300">WindowClose</animation>
+
+    <controls>
+        <!-- Transparent top margin -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>200</height>
+            <texture>-</texture>
+        </control>
+
+        <!-- Main band container with glassy background -->
+        <control type="group">
+            <left>0</left>
+            <top>200</top>
+            <width>1920</width>
+            <height>680</height>
+
+            <!-- Glassy background band -->
+            <control type="image">
+                <description>Glassy Band Background</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>680</height>
+                <texture colordiffuse="DD000000">white.png</texture>
+            </control>
+
+            <!-- Gradient overlay for depth -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>680</height>
+                <texture colordiffuse="50FFFFFF">button-nofocus.png</texture>
+            </control>
+
+            <!-- Content container -->
+            <control type="group">
+                <left>360</left>
+                <top>50</top>
+
+                <!-- The Crew Logo -->
+                <control type="image">
+                    <description>The Crew Logo</description>
+                    <left>480</left>
+                    <top>0</top>
+                    <width>240</width>
+                    <height>80</height>
+                    <texture>icon.png</texture>
+                    <aspectratio aligny="center">keep</aspectratio>
+                </control>
+
+                <!-- Version Badge/Banner -->
+                <control type="group">
+                    <left>320</left>
+                    <top>100</top>
+                    <width>560</width>
+                    <height>70</height>
+
+                    <!-- Badge background -->
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>560</width>
+                        <height>70</height>
+                        <texture colordiffuse="55000000">button-focus.png</texture>
+                    </control>
+
+                    <!-- Version text -->
+                    <control type="label" id="9001">
+                        <description>Version Number</description>
+                        <left>0</left>
+                        <top>0</top>
+                        <width>560</width>
+                        <height>70</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font40</font>
+                        <textcolor>FFFFFFFF</textcolor>
+                        <label>$INFO[Window().Property(version)]</label>
+                    </control>
+                </control>
+
+                <!-- Version Type (New Version / Alpha Warning / etc) -->
+                <control type="label" id="9002">
+                    <description>Announcement Type</description>
+                    <left>0</left>
+                    <top>195</top>
+                    <width>1200</width>
+                    <height>50</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font18</font>
+                    <textcolor>orchid</textcolor>
+                    <label>$INFO[Window().Property(announcement_type)]</label>
+                </control>
+
+                <!-- Highlight 1 -->
+                <control type="group" id="9010">
+                    <left>100</left>
+                    <top>270</top>
+                    <visible>!String.IsEmpty(Window().Property(highlight1))</visible>
+
+                    <!-- Bullet icon -->
+                    <control type="image">
+                        <left>0</left>
+                        <top>5</top>
+                        <width>30</width>
+                        <height>30</height>
+                        <texture colordiffuse="FFE6B8F5">checkmark.png</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+
+                    <!-- Highlight text -->
+                    <control type="textbox" id="9011">
+                        <left>50</left>
+                        <top>-5</top>
+                        <width>1000</width>
+                        <height>40</height>
+                        <font>font14</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window().Property(highlight1)]</label>
+                    </control>
+                </control>
+
+                <!-- Highlight 2 -->
+                <control type="group" id="9020">
+                    <left>100</left>
+                    <top>320</top>
+                    <visible>!String.IsEmpty(Window().Property(highlight2))</visible>
+
+                    <control type="image">
+                        <left>0</left>
+                        <top>5</top>
+                        <width>30</width>
+                        <height>30</height>
+                        <texture colordiffuse="FFE6B8F5">checkmark.png</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+
+                    <control type="textbox" id="9021">
+                        <left>50</left>
+                        <top>-5</top>
+                        <width>1000</width>
+                        <height>40</height>
+                        <font>font14</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window().Property(highlight2)]</label>
+                    </control>
+                </control>
+
+                <!-- Highlight 3 -->
+                <control type="group" id="9030">
+                    <left>100</left>
+                    <top>370</top>
+                    <visible>!String.IsEmpty(Window().Property(highlight3))</visible>
+
+                    <control type="image">
+                        <left>0</left>
+                        <top>5</top>
+                        <width>30</width>
+                        <height>30</height>
+                        <texture colordiffuse="FFE6B8F5">checkmark.png</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+
+                    <control type="textbox" id="9031">
+                        <left>50</left>
+                        <top>-5</top>
+                        <width>1000</width>
+                        <height>40</height>
+                        <font>font14</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window().Property(highlight3)]</label>
+                    </control>
+                </control>
+
+                <!-- Alpha Warning (if applicable) -->
+                <control type="group" id="9040">
+                    <left>100</left>
+                    <top>430</top>
+                    <visible>String.IsEqual(Window().Property(show_alpha_warning),true)</visible>
+
+                    <!-- Warning icon -->
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>40</width>
+                        <height>40</height>
+                        <texture colordiffuse="FFFFAA00">notification-warning.png</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+
+                    <!-- Warning text -->
+                    <control type="textbox" id="9041">
+                        <left>50</left>
+                        <top>0</top>
+                        <width>1000</width>
+                        <height>80</height>
+                        <font>font13</font>
+                        <textcolor>FFFFAA00</textcolor>
+                        <label>INFO: This is a beta version for testing. Most features are stable, but some bugs may exist. Please report any issues on GitHub.</label>
+                    </control>
+                </control>
+
+                <!-- Button group -->
+                <control type="grouplist" id="9100">
+                    <description>Button Group</description>
+                    <left>180</left>
+                    <top>550</top>
+                    <width>840</width>
+                    <height>90</height>
+                    <itemgap>20</itemgap>
+                    <orientation>horizontal</orientation>
+                    <onup>9100</onup>
+                    <ondown>9100</ondown>
+
+                    <!-- View Changelog Button -->
+                    <control type="button" id="101">
+                        <description>View Changelog</description>
+                        <width>260</width>
+                        <height>70</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font16_title</font>
+                        <textcolor>white</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <label>View Changelog</label>
+                        <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                        <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    </control>
+
+                    <!-- GitHub Button -->
+                    <control type="button" id="102">
+                        <description>Visit Beta Info Page</description>
+                        <width>260</width>
+                        <height>70</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font16_title</font>
+                        <textcolor>white</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <label>Beta Info</label>
+                        <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                        <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    </control>
+
+                    <!-- Close Button -->
+                    <control type="button" id="103">
+                        <description>Close</description>
+                        <width>260</width>
+                        <height>70</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>font16_title</font>
+                        <textcolor>white</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <label>Close</label>
+                        <texturefocus colordiffuse="FF66FF66">white.png</texturefocus>
+                        <texturenofocus colordiffuse="3366FF66">white.png</texturenofocus>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

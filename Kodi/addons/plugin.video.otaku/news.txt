@@ -1,0 +1,46 @@
+Otaku v5.2.72 — The "I Finally Got Off the Couch" Update
+
+Hey everyone,
+
+Let’s be real — I’ve been lazy. My last commit was January 11th and I basically disappeared for over a month. Life happened, motivation vanished, you know how it goes. But I’m back, and I came back to coding. This is one of the biggest updates Otaku has seen in a while, so buckle up.
+
+What’s New? 
+
+AniList Enrichment — Massively Optimized:
+- Startup watchlist prefetch no longer hammers the AniList API with 20+ separate calls
+- All MAL IDs are collected and fetched in ONE single batch call, then cached for 7 days
+- Watchlist views now load AniList data from cache instantly instead of hitting the API every time
+- Fixed Simkl Next Up crash caused by null last_watched_at values from the API
+- Fixed same potential crash in MAL Next Up with null updated_at values
+
+Next Up — Completely Rebuilt:
+- Brand new top-level Next Up menu item accessible from every sub-menu
+- Choose which watchlist flavor powers your Next Up (AniList, Kitsu, MAL, Simkl, or auto)
+- Enable/disable Next Up right from Watchlist settings
+- Rewrote and centralized ~800 lines of duplicated code into a single shared builder
+- Way cleaner, way faster, way less buggy
+
+Widget Playback — Finally Fixed:
+- Widgets now show full metadata (title, description, artwork) during playback
+- This was a long-standing issue that many of you reported — it’s gone now
+- Fixed crashes when playing Next Up episodes for shows not fully initialized
+
+Artwork Improvements:
+- New title-based artwork search fallback for anime missing TVDB/TMDB mappings
+- If ID-based lookups fail, Otaku now searches by title to find artwork
+- Toggle it on/off in settings (on by default)
+
+Watchlist Recode:
+- All enabled watchlists now update simultaneously — no more picking just one
+- Per-flavor completion detection using each service’s own episode counts
+- New per-flavor Watchlist Manager in the context menu
+- Unified status mapping across all flavors for consistent behavior
+
+A Huge Thank You:
+Seriously, thank you to everyone who stuck around while I was MIA. Your patience, bug reports, and support mean the world. Special thanks to the team and everyone in the community who kept things going. You all are the reason Otaku exists.
+
+I’ve got my motivation back and I’m excited to keep pushing this forward. If you run into any issues with this update, hit us up on GitHub.
+
+Happy watching!
+
+— Team Otaku

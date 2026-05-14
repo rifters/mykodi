@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+	<shortcut>
+		<defaultID>130</defaultID>
+		<label>[B][COLOR$VAR[C2]]S[/COLOR][COLOR$VAR[C3]]YSTEM[/COLOR] [COLOR$VAR[C2]]I[/COLOR][COLOR$VAR[C3]]NFO[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>ActivateWindow(SystemInfo)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>[B][COLOR$VAR[C2]]P[/COLOR][COLOR$VAR[C3]]OWER[/COLOR][/B]</defaultID>
+		<label>[B][COLOR$VAR[C2]]P[/COLOR][COLOR$VAR[C3]]OWER[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>ActivateWindow(shutdownmenu)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>20077</defaultID>
+		<label>[B][COLOR$VAR[C2]]S[/COLOR][COLOR$VAR[C3]]KIN[/COLOR] [COLOR$VAR[C2]]S[/COLOR][COLOR$VAR[C3]]ETTINGS[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>ActivateWindow(SkinSettings)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>[B][COLOR$VAR[C2]]F[/COLOR][COLOR$VAR[C3]]ILE[/COLOR] [COLOR$VAR[C2]]M[/COLOR][COLOR$VAR[C3]]ANAGER[/COLOR][/B]</defaultID>
+		<label>[B][COLOR$VAR[C2]]F[/COLOR][COLOR$VAR[C3]]ILE[/COLOR] [COLOR$VAR[C2]]M[/COLOR][COLOR$VAR[C3]]ANAGER[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>ActivateWindow(FileManager)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>[B][COLOR$VAR[C2]]P[/COLOR][COLOR$VAR[C3]]ROFILES[/COLOR][/B]</defaultID>
+		<label>[B][COLOR$VAR[C2]]P[/COLOR][COLOR$VAR[C3]]ROFILES[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>ActivateWindow(Profiles)</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>[B][COLOR$VAR[C2]]E[/COLOR][COLOR$VAR[C3]]VENT[/COLOR] [COLOR$VAR[C2]]L[/COLOR][COLOR$VAR[C3]]OG[/COLOR][/B]</defaultID>
+		<label>[B][COLOR$VAR[C2]]E[/COLOR][COLOR$VAR[C3]]VENT[/COLOR] [COLOR$VAR[C2]]L[/COLOR][COLOR$VAR[C3]]OG[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>ActivateWindow(Eventlog)</action>
+	</shortcut>
+</shortcuts>

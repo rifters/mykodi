@@ -1,0 +1,144 @@
+<settings>
+
+    <!-- ========================= -->
+    <!--        GENERAL            -->
+    <!-- ========================= -->
+    <category label="General">
+
+        <setting id="max_entries_display"
+                 type="number"
+                 label="Maximum entries to display"
+                 default="200" />
+
+        <setting id="filter_mode"
+         type="enum"
+         label="Filter mode"
+         values="Media extensions only|Show all URLs|Only plugin://|Only HTTP(S)|Only local paths|Nested URLs|Cache URLs"
+         default="0" />
+
+        <setting id="extensions"
+                 type="string"
+                 label="Extensions to match (| separated)"
+                 default=".mp4|.mkv|.avi|.mov|.m3u8|.ts" />
+
+    </category>
+
+
+    <!-- ========================= -->
+    <!--         FILTERS           -->
+    <!-- ========================= -->
+    <category label="Filters">
+
+        <setting id="show_repo"
+                 type="bool"
+                 label="Show repo / XML URLs"
+                 default="false" />
+
+        <setting id="show_local"
+                 type="bool"
+                 label="Show local file paths"
+                 default="false" />
+
+        <setting id="show_debrid"
+                 type="bool"
+                 label="Show Debrid URLs"
+                 default="true" />
+
+        <setting id="ignore_localhost"
+                 type="bool"
+                 label="Ignore localhost / LAN URLs"
+                 default="true" />
+
+        <setting id="ignore_plugin"
+                 type="bool"
+                 label="Ignore plugin:// URLs"
+                 default="false" />
+
+        <setting id="ignore_pictures"
+                 type="bool"
+                 label="Ignore picture URLs (.jpg/.png/.gif/.webp)"
+                 default="true" />
+
+        <setting id="ignore_smb"
+                 type="bool"
+                 label="Ignore SMB/NFS paths"
+                 default="false" />
+
+        <setting id="filter_xml_repo"
+                 type="bool"
+                 label="Ignore XML / repo URLs"
+                 default="true" />
+
+        <setting id="custom_regex_filter"
+                 type="string"
+                 label="Custom regex filter (exclude matches)"
+                 default="" />
+
+    </category>
+
+
+    <!-- ========================= -->
+    <!--          ARIA2            -->
+    <!-- ========================= -->
+    <category label="Aria2">
+
+        <setting id="aria2_enabled"
+                 type="bool"
+                 label="Enable Aria2 integration"
+                 default="false" />
+
+        <setting id="aria2_host"
+                 type="text"
+                 label="Aria2 RPC host"
+                 default="127.0.0.1" />
+
+        <setting id="aria2_port"
+                 type="number"
+                 label="Aria2 RPC port"
+                 default="6800" />
+
+        <setting id="aria2_secret"
+                 type="text"
+                 label="Aria2 RPC secret (token)"
+                 default="" />
+
+        <setting id="aria2_auto_send"
+                 type="bool"
+                 label="Auto-send matching URLs to Aria2"
+                 default="false" />
+
+        <setting id="aria2_filter"
+                 type="text"
+                 label="Auto-send filter (substring, e.g. real-debrid)"
+                 default="" />
+
+    </category>
+
+
+    <!-- ========================= -->
+    <!--       MAINTENANCE         -->
+    <!-- ========================= -->
+    <category label="Maintenance">
+
+        <setting id="clear_now"
+                 type="action"
+                 label="Clear captured URLs now" />
+
+        <setting id="auto_clear"
+                 type="bool"
+                 label="Auto-clear captured URLs"
+                 default="false" />
+
+        <setting id="auto_clear_days"
+                 type="number"
+                 label="Auto-clear interval (days)"
+                 default="7" />
+
+        <setting id="archive_old"
+                 type="bool"
+                 label="Archive old JSON before clearing"
+                 default="false" />
+
+    </category>
+
+</settings>

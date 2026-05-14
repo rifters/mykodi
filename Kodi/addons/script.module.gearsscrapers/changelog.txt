@@ -1,0 +1,17 @@
+[COLOR cyan][B]Version 1.3.2[/B][/COLOR]
+
+• Removed Mediafusion (issues fail to return any links)
+• Added torlock.
+• Added rutor.
+• Added knaben.
+
+• Optimized Setup For Best Performance.
+• Removed Duplicate Scrapers.
+• Overall: Improved stability, faster performance.
+• Improved speed, reliability, and consistency of results.
+• Clean Thumbnails After Update.
+
+• Optimized Setup for Comet Scraper
+• Optimized Setup for Metoer Scraper
+Reworked and streamlined the configuration
+Improvements include faster initialization, better source handling, and more reliable scraping performance across supported content. This should result in quicker link retrieval and a smoother overall user experience.

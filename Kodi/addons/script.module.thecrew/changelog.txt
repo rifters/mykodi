@@ -1,0 +1,495 @@
+[COLOR orchid][B]The Crew Addon - Release Notes[/B][/COLOR]
+
+=====================================================
+Version 2.6.16 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'Remember Where We Left Off' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed resume/bookmark never being saved. CrewMonitor-Worker created a _PlaybackWatcher(xbmc.Player) subclass on a background thread to detect playback start via onAVStarted. Kodi only delivers xbmc.Player callbacks to instances created on the main/service thread, so onAVStarted never fired, the 240s wait always timed out, and bm.reset() was never called. Replaced the callback with a 1s polling loop using isPlayingVideo() which works correctly from any thread.
+
+=====================================================
+Version 2.6.15 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'We Measured It' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Measured Real-Debrid's actual 429 rate-limit window using a probe script: RD recovers in ~2.2s. Our hardcoded backoff was 15s (7x too high). Reduced RD_RATE_LIMIT_BACKOFF from 15s to 3s, and raised the initial retry sleep from 2s to 3s (avoids the second 429 hit entirely in most cases). Per 429 event: saves up to 12s of unnecessary waiting.
+
+=====================================================
+Version 2.6.14 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'Stop Burning Sources' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Real-Debrid sources being skipped en-masse during a rate-limit backoff (429). Previously, when RD set a 15s backoff, every subsequent source during that window was immediately discarded (return None). Now, the first source to hit an active backoff sleeps out the remainder, then proceeds — so at most one source causes a brief wait, and all remaining sources flow normally.
+
+=====================================================
+Version 2.6.13 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'It's Not Us, It's Them' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Improvements[/COLOR]
+- Improved failure message when all sources fail due to Real-Debrid DMCA blocks (451): instead of the generic 'No stream available', users now see 'Real-Debrid blocked sources (451 DMCA). This is a Real-Debrid issue — try a different title or check back later.' Only shown when RD actually returned 451 during the session; all other failures still show the standard message.
+
+=====================================================
+Version 2.6.12 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'Respect The Law (And The Rate Limiter)' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed 'No stream available' root cause: a DMCA-blocked hash (HTTP 451 from Real-Debrid) causes RD to aggressively rate-limit the very next API call (429). Fix: when RD returns 451, sleep 1 second before moving to the next source, giving RD's limiter time to reset. The 429 cascade is now prevented at the source.
+
+=====================================================
+Version 2.6.11 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'Stop Hammering The API' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed 'No stream available' for pack sources caused by Real-Debrid rate limiting (HTTP 429). When the addon tries many pack sources back-to-back, RD now rate-limits after the first few calls. Fix: on 429, sleep 2 seconds and retry once. If still 429, back off for 15 seconds — subsequent sources skip the API call immediately and the next attempt happens after the backoff window expires, giving RD time to recover.
+- Applied same 429-retry logic to Premiumize pack resolution.
+
+=====================================================
+Version 2.6.10 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'Debrid First, Quality Second' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Improvements[/COLOR]
+- Changed source label order: debrid service now appears before quality (e.g. '01 | RD | 1080p | Torrentio | PACK' instead of '01 | 1080p | RD | ...'). Applies to all label modes: multiline, single-line, and compact.
+
+=====================================================
+Version 2.6.9 (May 12, 2026) - Hotfix Release - [COLOR cyan][B]The 'Labels That Actually Make Sense' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed missing debrid service label (RD/PM/AD/TB) in the source selection list when the 'Multiline source list' setting is enabled. The multiline label was built without the debrid short code, so users with that setting saw the provider name but not which debrid service it came from.
+
+=====================================================
+Version 2.6.8 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'Most Friendly Debrid Client On The Planet' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Added AllDebrid instant availability pre-check (GET /v4/magnet/instant) before uploading magnets. Like the Premiumize cache/check fix in v2.6.7, this skips the expensive upload+status flow entirely for non-cached sources, reducing N heavy API calls to N lightweight hash lookups.
+
+=====================================================
+Version 2.6.7 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'Stop Poking Premiumize' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Premiumize 429 rate-limit errors during pack resolution: the previous approach called transfer/create for every pack source (20+) to check if content was cached, which PM rate-limits aggressively. Now uses the dedicated cache/check endpoint first (a lightweight hash lookup designed for bulk checking), and only calls transfer/create for the one or two sources that are actually cached.
+
+=====================================================
+Version 2.6.6 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'magnets[] Is Not A List' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed AllDebrid pack resolution crashing with KeyError: 0 on every source: the v4.1 /magnet/status endpoint returns magnets as a dict keyed by magnet ID (e.g. {"12345": {...}}), not as a list — magnets[0] was looking for dict key 0 and always failing. Now handles both dict and list shapes correctly.
+
+=====================================================
+Version 2.6.5 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'Stop Spamming Premiumize' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Premiumize pack resolution showing "Adding magnet to Premiumize..." dozens of times: the old flow called transfer/create + sleep + transfer/list for every pack source, even non-cached ones; the new flow checks for folder_id in the transfer/create response (present only when Premiumize already has the file cached) and returns immediately for non-cached magnets, eliminating the sleep, the redundant transfer/list call, and the dialog spam.
+
+=====================================================
+Version 2.6.4 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'AllDebrid Grows Up' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed AllDebrid pack resolution broken by their API migration: /v4/magnet/status was discontinued (Oct 2024); updated to POST /v4.1/magnet/status + separate POST /v4/magnet/files call to retrieve file links (the new endpoint no longer returns files inline).
+- Fixed KeyError crash when AllDebrid rejects an individual magnet on upload (e.g. MAGNET_INVALID_URI) — the response now has an error object instead of an id; this is now detected and skipped cleanly.
+- Switched all AllDebrid API calls to POST with Authorization Bearer header as required by the current API spec.
+
+=====================================================
+Version 2.6.3 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'Wrong Episode? Blame Torrentio' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed pack sources playing the wrong episode: Torrentio embeds its own episode number in the source metadata (e.g. episode=4), which was being used instead of the actual episode the user requested (e.g. episode=6). Resolution now uses the authoritative instance-level episode from the container metadata, falling back to the source dict only if unavailable.
+
+=====================================================
+Version 2.6.2 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'Endpoint? What Endpoint?' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed pack sources (magnet links) being incorrectly rejected as invalid: the Real-Debrid instantAvailability pre-check was silently discarding valid torrents because RD stopped returning cached file data from that endpoint. Pre-check removed — sources now resolve correctly.
+- Fixed resume points not being saved when stopping playback mid-episode: onPlayBackStopped fires after the player shuts down, so getTime() returns 0; the player now uses the last position polled by the monitoring loop instead, ensuring the bookmark is written correctly.
+
+=====================================================
+Version 2.6.1 (May 11, 2026) - Hotfix Release - [COLOR cyan][B]The 'Still Glowing After The Session' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Trakt watched indicators showing only the first episode as watched when multiple episodes had been watched (e.g. Good Girls S03E01-E05 all showing checkmarks correctly now)
+- Fixed resume points not working for movies and TV shows: Trakt's in-progress percentage was being stored as raw seconds in the local DB, causing the player to seek to e.g. second 85 instead of 85% through the video; now correctly converted to seconds using the episode/movie runtime
+- Fixed bookmarks.get() falling back to local bookmarks when the Trakt progress table has no entry, restoring resume points for users whose progress table was empty due to a silent DB insert failure
+
+[COLOR cyan]NOTE:[/COLOR] This release represents months of dedicated work completely rewriting and modernizing The Crew from the ground up. I have tried to keep this changelog clear but also detailed enough for users to understand the massive scope of changes. From a broken Python 2/3 hybrid with a a lot of non-functioning scrapers to a blazing-fast pure Python 3 powerhouse - almost every line has been touched. This is the release where many many months (and nights!) of work culminated, and I hope you enjoy it. As always, please, if you encounter any issues, report them to our GitHub repository. Your feedback is invaluable in helping us improve The Crew! - Classy
+
+=====================================================
+Version 2.6.0 (May 9, 2026) - Major Hardening Release - [COLOR cyan][B]The 'No More Spaghetti' Release[/B][/COLOR]
+=====================================================
+[COLOR lime]New Features[/COLOR]
+- Auto-disable slow scrapers: scrapers that time out twice in a session are automatically skipped for the remainder of the session, speeding up source selection for unreliable sources
+- Trakt health check on startup: distinct dialogs per failure type (network outage, token expired, account locked) instead of a generic error toast
+- Debrid unreachable notification: one-per-session toast when a debrid service cannot be contacted, instead of silent failure
+
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed random toast notifications appearing during playback: 'trakt collection updated' and scrobble notify dialogs are now suppressed while a video is playing
+- Fixed PACK false positives on movies: tightened regex patterns in is_pack_source() — movies with a year (e.g. Hunting.Season.2019) or resolution (e.g. Movie.2013.1080p) no longer get incorrectly tagged as season packs
+- Fixed missing filesize in source line 2 when torrent pack name is shown: size (e.g. '7.78 GB | WEB') is now always shown alongside the torrent filename
+- Fixed UpNext stale container bug: episode 2 was incorrectly shown as 'next episode' while already playing episode 2; prefetch container is now validated and discarded when stale
+- Fixed Trakt token refresh race condition: concurrent threads could both trigger a token refresh simultaneously; now guarded by a threading.Lock
+- Fixed stale Trakt refresh token cascade: _ensure_auth() now reloads credentials fresh from settings instead of using a cached copy; revoke() on refresh failure removed (was silently wiping tokens mid-session)
+- Fixed Real-Debrid pack resolution when OAuth access token had expired (401 → auto-refresh → retry, no re-authentication needed)
+- Fixed context menu doubling: replaceItems=True applied and duplicate 'Information' entry removed
+- Fixed Continue Watching stale cache: CACHE_TTL_REALTIME set to None (bypass) so the widget always reflects current play state
+- Fixed clear resume point falling back to Trakt API when local DB entry is absent
+
+[COLOR red]Removed[/COLOR]
+- IPTV / Live TV feature removed entirely (iptv/ directory, white/ scrapers, crewstreamer local overrides, all navigator/lists/crew references)
+- Adult pin dev backdoor key removed
+
+[COLOR lime]Performance[/COLOR]
+- SQLite WAL mode enabled on all cache databases: readers no longer block writers
+- All database connections now use a context manager (_db_cursor) guaranteeing close() in finally — no more connection leaks
+- requests.Session objects now closed via __del__ in all 7 affected scraper/API classes
+- Replaced blocking time.sleep() calls with threading.Event in crewservice.py, tvevening_monitor.py, tvevening_countdown.py, tvevening_complete.py
+- Added maxsize=1000 to scraper completion_queue to prevent unbounded memory growth
+
+[COLOR cyan]Technical[/COLOR]
+- cache.py: ALLOWED_TABLES whitelist added to prevent SQL table name injection
+- cache.py: Cache timeout semantics clarified: None = bypass, 0 = indefinite, n = hours
+- database.py: silent pass on DB open/commit/pragma failures replaced with proper logging
+- debrid_manager.py, progress.py: bare except: clauses narrowed to except Exception:
+- All network calls in realdebrid_api.py, debridcheck.py, docu.py, orion_api.py now have timeout=15
+- .bak files removed from repository
+- Bumped module to 2.6.0 / plugin to 2.6.0 / artwork to 2.6.0
+
+=====================================================
+Version 2.5.10 (April 27, 2026) - Bug Fix
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Real-Debrid pack resolution for TV show episodes: when the stored OAuth access token had expired, every API call returned 401 Unauthorized and no episode could be played. The resolver now automatically refreshes the access token using the stored refresh token and client credentials, then retries the failed request — no manual re-authentication required.
+
+[COLOR cyan]Technical[/COLOR]
+- Added _rd_refresh_access_token() helper that calls /oauth/v2/token with the refresh token and persists the new access token back to resolveurl settings
+- 401 handling added at both the instantAvailability pre-check and the addMagnet call
+- Bumped module to 2.5.10
+
+=====================================================
+Version 2.5.9 (April 26, 2026) - Bug Fix
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Xbox One (Kodi UWP): HTTPS was silently broken due to ssl._create_unverified_context() being restricted in the UWP sandbox - all scrapers and debrid APIs failed with no error shown. Now uses UWP-compatible ssl.create_default_context() + CERT_NONE path on Xbox.
+
+[COLOR cyan]Technical[/COLOR]
+- Bumped module to 2.5.9
+
+=====================================================
+Version 2.5.8 / Plugin 2.5.4 (April 26, 2026) - Performance & Bug Fixes - [COLOR cyan][B]The 'Quick Draw' Release[/B][/COLOR]
+=====================================================
+[COLOR lime]Performance[/COLOR]
+- Real-Debrid pack resolution: pre-check instantAvailability before adding magnet - uncached packs now rejected in ~100ms instead of taking 3-5 seconds each, dramatically speeding up source selection when most packs are uncached
+- Pre-check also verifies the specific target episode exists in a cached variant, fixing false positives where debridcheck marked a torrent cached (any variant) but our episode wasn't actually cached
+
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed TV show artwork worker: range(0, total, 40) was only processing every 40th show - changed to range(total) so all shows get artwork
+- Fixed clearlogo/clearart not appearing: fetching now happens unconditionally outside the hq_artwork guard
+- Fixed Next Episodes widget showing empty after -ClearCache on boot: added retry-once-after-3s for transient network failures at Kodi startup
+- Added missing lang string #32500 'No results found' (was causing blank infoDialog text on empty episode lists)
+
+[COLOR cyan]Technical[/COLOR]
+- Bumped module to 2.5.8 / plugin to 2.5.4
+
+=====================================================
+Version 2.5.7 / Plugin 2.5.3 (April 25, 2026) - Bug Fixes and New Feature - [COLOR cyan][B]The 'Water Break' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed sports streams broken due to incorrect cdnImport() path resolution (used addonPath instead of __file__-relative path, causing stale local override to always load)
+- Fixed crewstreamer local override causing NameError (missing 'c' import) silently swallowed by bare except, returning None for all streams
+- Removed broken local_overrides/crewstreamer.py entirely - CDN version is now authoritative
+- Fixed Trakt update_progress_in_database() for episodes: now correctly matches on show identifiers (showimdb/showtrakt/showtmdb + season/episode) instead of episode-level imdb/trakt; adds INSERT fallback when no existing row is found
+- Fixed Trakt delete_progress_from_database() for episodes: now matches on showimdb as well as imdb so show progress is correctly cleared
+- Fixed UpNext prefetch guard: added _secondary_episode is not None check to prevent premature prefetch start
+
+[COLOR lime]New Feature[/COLOR]
+- Added UpNext 'seconds before end' setting (upnext.end_seconds): configurable slider in settings to trigger UpNext dialog N seconds before episode ends, complementing the existing percentage-based trigger
+- Added string #32725 (EN + NL) for the new setting label
+
+[COLOR cyan]Technical[/COLOR]
+- UpNext single-use cache: TTL removed, cache is cleared on read to prevent stale UpNext data
+- New crewservice.py module: UpNext monitoring with dual-mode trigger (time-based and percent-based) and Trakt scrobble on playback end
+- Bumped module to 2.5.7 / plugin to 2.5.3
+
+=====================================================
+Version 2.5.5 (March 27, 2026) - Bug Fixes and Improvements - [COLOR cyan][B]The 'Saskia' Release[/B][/COLOR]
+=====================================================
+[COLOR orange]Bug Fixes[/COLOR]
+- Fixed Next Episodes (widget) finally (user found a critical bug in the new episode fetching code - fixed now!)
+- added Hidden items menu-item for Trakt hidden shows calendar
+- Fixed some variable scope bugs in episode fetching that caused empty lists
+- Fixed Trakt re-authentication loop: token expiry key mismatch, broken time arithmetic, missing user notification, and no background token keepalive (token is now silently refreshed every hour while Kodi is running)
+
+[COLOR lime]Extra[/COLOR]
+- Added comprehensive metadata caching for TV shows to reduce redundant API calls
+- Cached metadata includes director, writer, cast, genre, studio, country, rating, votes, and MPAA
+- bumped version to module 2.5.5/plugin 2.5.1 to include these fixes and improvements
+
+=====================================================
+Version 2.5.4 (March 26, 2026) - WIDGET OPTIMIZATION - [COLOR orange][B]INTERNAL RELEASE ONLY[/B][/COLOR]
+=====================================================
+[COLOR lime]Performance[/COLOR]
+- Widget loading optimized with minimal metadata fetching (~75% bandwidth savings)
+- Widgets now fetch only essential data (title, overview, air date) - no cast/crew/images
+- Eliminates unnecessary 20-30KB payload per episode in widget listings
+- Batch cache loading now supports both minimal (widgets) and full (directories) metadata modes
+- Directory listings maintain full metadata with cast/crew for rich browsing experience
+
+[COLOR cyan]Technical Details[/COLOR]
+- New Episode.fetch_tmdb_metadata_minimal() method skips TMDB append_to_response parameter
+- Widget mode detected via CrewRuntime.is_widget_listing() check
+- Minimal metadata includes: episode name, overview, air date, still path, ratings, runtime
+- Full metadata (directories only) includes: cast, crew, guest stars, writers, directors, external IDs
+- Widget mode automatically uses minimal metadata for Next Episodes and In Progress Episodes
+- Results in faster initial widget load and reduced TMDB API usage
+
+=====================================================
+Version 2.5.3 (March 26, 2026) - CRITICAL TIMEOUT FIX - [COLOR orange][B]INTERNAL RELEASE ONLY[/B][/COLOR]
+=====================================================
+[COLOR red]Critical Bug Fixes[/COLOR]
+- Fixed infinite loading cursor on Next Episodes, In Progress Shows, and In Progress Episodes lists (Shield TV Android)
+- Added comprehensive timeout protection to all parallel processing operations in progress indexer
+- Implements graceful degradation: lists load even if some shows timeout (partial results vs infinite hang)
+- Added detailed timeout logging for debugging network/TMDB connectivity issues
+
+[COLOR cyan]Technical Details[/COLOR]
+- ThreadPoolExecutor operations now have multi-level timeout protection:
+  * 30 seconds max per show/episode processing (handles slow TMDB/network)
+  * Adaptive total timeout: 4 minutes max or 2 seconds per item average
+  * Continues processing remaining items even if some timeout
+- Affects users who don't open Kodi for days (cold cache triggers more TMDB fetches)
+- Prevents ONE stuck show from blocking entire list forever
+
+=====================================================
+Version 2.5.2 (March 21, 2026) - BUG FIX RELEASE
+=====================================================
+[COLOR orange]Bugs Fixes[/COLOR]
+- Scraper status was broken on Shield tv - now shows correct status and errors
+- Episode watched status not updating after UpNext/TV Evening playback (Trakt parameter bug + missing container refresh)
+- Log Uploads (anonymized) didn't work on non Windows platforms - now works on all platforms
+
+[COLOR orange]Improvements[/COLOR]
+- Changed UpNext default trigger from 92% to 97% so users see more episode content before auto-play
+
+
+=====================================================
+Version 2.5.0-beta (March 19, 2026) - COMPLETE MODERNIZATION RELEASE
+=====================================================
+
+[COLOR yellow]*** BETA RELEASE - MASSIVE OVERHAUL FROM 2.0.6 ***[/COLOR]
+
+[COLOR orchid]This represents months of work completely modernizing The Crew![/COLOR]
+
+[COLOR cyan]What changed from version 2.0.6:[/COLOR]
+- Complete migration from Python 2/3 hybrid to pure Python 3
+- Almost every line of code rewritten and modernized
+- Old Genesis-based code completely replaced
+- Performance transformation: 30-45 second waits -> 1-3 seconds for lists!
+- Scrapers completely fixed and functional
+- Adult section now fully working
+- Movies/TV Shows now consistently functional
+- Brand new caching system for blazing-fast navigation
+- Modern architecture throughout
+
+[COLOR lime]This isn't an update - it's a complete transformation of The Crew addon![/COLOR]
+
+[COLOR lime]NEW FEATURE - TV EVENING:[/COLOR]
+[COLOR orchid]*** Experience a whole new way to binge-watch your favorite shows! ***[/COLOR]
+
+TV Evening is an automatic playlist mode that transforms your TV show watching experience:
+- Beautiful fullscreen overlay with show backdrop appears during episode scraping
+- Episode information and cast photos displayed elegantly during transitions
+- Smart countdown appears at 92% of episode completion (not during credits!)
+- Seamless automatic transitions between episodes - sit back and enjoy
+- Gorgeous pause screens between episodes with show artwork
+- Robust fallback system ensures backdrops always load (TMDB -> Fanart cache -> Theme)
+
+[COLOR cyan]How to use:[/COLOR] Navigate to any TV show episode and select "TV Evening" from the context menu.
+Add multiple episodes to your playlist and let The Crew handle the rest!
+
+[COLOR orange]TV Evening - Technical Fixes:[/COLOR]
+- Fixed timing detection to handle resume points correctly (seek detection + stabilization)
+- Fixed overlay not appearing during source scraping
+- Fixed backdrop loading failures (database schema migration + TMDB CDN update)
+- Fixed overlay staying on screen during playback
+- Added session validation to prevent false playback starts
+- Migrated to new TMDB image CDN (image.tmdb.org) with automatic URL migration
+- Implemented 3-tier backdrop fallback for maximum reliability
+
+[COLOR lime]NEW FEATURES - CONTENT DISCOVERY:[/COLOR]
+
+[COLOR cyan]Personal Calendars:[/COLOR]
+- TV Calendar - See episodes airing from YOUR subscribed shows (not global trends!)
+- Movie Calendar - See releases from YOUR watchlist and collection
+- Multiple time ranges: Today, This Week, Next Week
+- Never miss new episodes or movie releases you're waiting for
+
+[COLOR cyan]Trakt Integration (13 New Discovery Features):[/COLOR]
+- Recommended for You - Personalized movie & show recommendations
+- Popular - Most popular movies and shows on Trakt
+- Anticipated - Most anticipated upcoming releases
+- Most Played - Content with highest watch counts
+- Most Watched - Content watched by most unique users
+- Most Collected - Content most collected in user libraries
+- Box Office - Weekend top 10 movies
+- Related Movies/Shows - Smart recommendations based on what you're watching
+- User Statistics - View your watch counts, time spent, top genres
+- Watch History - Complete viewing history with timestamps (preserves rewatches!)
+- Trakt QR Code Authentication - Scan with mobile device for instant setup
+
+[COLOR cyan]TMDB Integration (5 New Features):[/COLOR]
+- Now Playing (In Theaters) - Movies currently in theaters
+- Upcoming Releases - Movies releasing in the next 4 weeks
+- Latest Releases - Past 31 days of streaming/digital releases
+- Premieres (All Platforms) - Recent premieres across all platforms
+- Upcoming Shows - TV shows premiering in the next 30 days
+
+[COLOR cyan]Content Enhancement:[/COLOR]
+- Trailer Support for TV Shows & Episodes - YouTube integration everywhere
+- Trailer buttons in info dialogs, Next Episodes, and In Progress lists
+- "Page X of Y" pagination display for all Trakt and TMDB lists
+- Complete metadata enhancement (studio, genre, MPAA ratings)
+
+[COLOR cyan]Family Features:[/COLOR]
+- PIN Protection for Adult Content - SHA256 hashed, 4-hour session
+- Custom parental control with masked PIN entry
+- Configurable section name in settings
+
+[COLOR red]CRITICAL FIXES:[/COLOR]
+
+[COLOR orange]Major Bugs Resolved:[/COLOR]
+- [COLOR red]CRITICAL:[/COLOR] Trakt Token Refresh - Was completely broken, now auto-refreshes forever (re-authorize once!)
+- [COLOR red]CRITICAL:[/COLOR] Episode Scraping - Was returning WRONG episodes (everything except requested!)
+- [COLOR red]CRITICAL:[/COLOR] UpNext Auto-Play - Episodes weren't being marked as watched
+- [COLOR red]CRITICAL:[/COLOR] Info Dialog Playback - Endless loop on Shield TV fixed
+- Calendar Date Issues - Fixed timezone problems showing wrong episodes
+- "Most Voted" Lists - No longer showing unreleased/unaired content
+- UpNext - No longer auto-plays unaired episodes
+- Progress Table - Only shows genuinely in-progress content (not completed)
+- Unaired Seasons - Correct watched indicator display
+- Russian Torrents - Episode pack filtering now works correctly
+- Audio Selection - No longer selected twice during playback
+
+[COLOR lime]PERFORMANCE IMPROVEMENTS:[/COLOR]
+- Logging Overhead - 98% reduction! (100,000+ lines -> 1,800 lines)
+- Cold Start Time - 90% faster (7,800 lines -> 770 lines, 5-8 seconds faster)
+- Source scraping is now 75-83% faster (5-15 seconds instead of 60+ seconds)
+- Next Episodes widget loads in 2 seconds instead of 45 seconds (95% faster!)
+- Progress counter now shows correct scraper names during search
+- Scraping timeout reduced to 15 seconds (most results appear in first 5 seconds)
+- Smart widget caching - detects cache warmth, instant loads on warm cache
+- 30-day TMDB artwork caching for faster navigation
+- Reduced disk I/O with optimized logging and caching strategies
+
+[COLOR lime]ARCHITECTURE & CODE QUALITY:[/COLOR]
+- BaseScraper Architecture - Unified base class for all ~34 crew scrapers
+- TMDBMixin Base Class - Eliminated ~150 lines of duplicate code
+- Modern Python 3 patterns throughout (no more Python 2 compatibility code)
+- BeautifulSoup4 HTML parser added for complex website scraping
+- 113 Regex patterns fixed with raw string literals (r'') for reliability
+- Title matching regex modernized for better scraper filename matching
+- Thread pool optimization - prevented potential crashes from exhaustion
+- Removed dead code: tvmaze.py, dom_parser2.py, legacy scrapers, IMDB lists
+- Sports resolver modernization with graceful crypto degradation
+
+[COLOR orange]OTHER FIXES:[/COLOR]
+- Pirate Bay sources now return successfully
+- Progress dialog showing wrong scraper count
+- Trakt authentication errors that caused infinite loops
+- Episodes widget not updating after watching episodes
+- Some shows had invalid IDs causing crashes
+
+[COLOR red]REMOVED:[/COLOR]
+- Disabled 3 slow scrapers that rarely found content (kickass2, eztv, limetorrents)
+
+[COLOR cyan]NOTE:[/COLOR]
+To get an even better experience, enable gearsscrapers, cocoscrapers or viperscrapers in Settings > External Scrapers.
+These add many more high-quality sources to complement The Crew's built-in scrapers.
+
+=====================================================
+Version 2.2.10-alpha (March 16, 2026)
+=====================================================
+
+[COLOR lime]IMPROVED:[/COLOR]
+- Widget loading much faster with smart cache detection
+- Less logging spam in the log files
+- Episode metadata fetching optimized for widgets
+
+[COLOR orange]FIXED:[/COLOR]
+- Variable scope bugs in episode fetching
+- Early return bug causing empty episode lists
+- Boolean handling in TMDB configuration
+
+=====================================================
+Version 2.2.9-alpha (March 2026)
+=====================================================
+
+[COLOR lime]ADDED:[/COLOR]
+- Personal TV Calendar - see episodes airing from YOUR subscribed shows
+- Movie Calendar - see releases from YOUR watchlist
+- Related Movies and Related Shows recommendations
+- User Statistics - view your watch counts and top genres
+- PIN protection for adult content section (parental control)
+
+[COLOR orange]FIXED:[/COLOR]
+- Calendar showing wrong episodes due to timezone issues
+- "Most Voted" lists showing unreleased content
+- UpNext not marking episodes as watched during auto-play
+- In Progress list showing completed episodes
+- IPTV menu not opening
+
+=====================================================
+Version 2.2.8-alpha (March 2026)
+=====================================================
+
+[COLOR orange]FIXED:[/COLOR]
+- Info dialog "Play" button causing endless loops on Shield TV
+- Playback timeout issues on slower devices
+
+=====================================================
+Version 2.2.7-alpha (March 2026)
+=====================================================
+
+[COLOR lime]ADDED:[/COLOR]
+- Trailer buttons for TV shows and episodes
+- Trailer support in Next Episodes and In Progress lists
+- YouTube plugin integration for trailer playback
+
+[COLOR orange]FIXED:[/COLOR]
+- Episodes not marked as watched when UpNext auto-plays
+- Progress table showing completed episodes
+- Wrong episodes being scraped (returning everything except requested episode)
+
+=====================================================
+Version 2.2.6-alpha (February 2026)
+=====================================================
+
+[COLOR lime]ADDED:[/COLOR]
+- Trakt QR code authentication for easy mobile setup
+- 13 new Trakt discovery features (Recommended, Popular, Anticipated, etc.)
+- 5 new TMDB discovery features (Now Playing, Upcoming, etc.)
+- Box Office weekend top 10 movies
+- Watch history tracking with timestamps
+
+[COLOR orange]FIXED:[/COLOR]
+- Trakt token refresh was completely broken
+- Unaired seasons showing as watched
+- UpNext auto-playing unaired episodes
+- TV Calendar reduced from 61 days to 14 days (less clutter)
+
+[COLOR lime]IMPROVED:[/COLOR]
+- "Page X of Y" display for all lists
+- Calendar views sorted by air date
+
+=====================================================
+Version 2.2.5-alpha (February 2026)
+=====================================================
+
+[COLOR lime]ADDED:[/COLOR]
+- Version announcement dialog on startup
+- Comprehensive maintenance system
+- Modernized log viewer
+- OpenSubtitles REST API integration
+
+[COLOR orange]FIXED:[/COLOR]
+- Duplicate code removed from Episodes class
+- Thread pool exhaustion issues
+- DBID retrieval for library items
+
+=====================================================
+
+[COLOR cyan]For detailed technical changes, see changelog_technical_archive.txt[/COLOR]
+
+[COLOR yellow]IMPORTANT:[/COLOR]
+This is a beta release. While we've tested extensively, please report any issues to our GitHub repository.
+
+[COLOR orchid]Thank you for using The Crew![/COLOR]

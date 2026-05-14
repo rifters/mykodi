@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <category label="General">
+        <setting id="auto_skip" type="bool" label="$ADDON[plugin.video.tidb 32010]" default="false"/>
+        <setting id="skip_offset" type="number" label="$ADDON[plugin.video.tidb 32011]" default="2"/>
+    </category>
+    <category label="Segment Types">
+        <setting id="enable_intro" type="bool" label="Enable intro skipping" default="true"/>
+        <setting id="enable_recap" type="bool" label="Enable recap skipping" default="true"/>
+        <setting id="enable_credits" type="bool" label="Enable credits skipping" default="true"/>
+        <setting id="enable_preview" type="bool" label="Enable preview skipping" default="true"/>
+    </category>
+    <category label="TheIntroDB">
+        <setting id="introdb_enabled" type="bool" label="Enable lookups" default="true"/>
+        <setting id="introdb_api_key" type="text" label="Optional TheIntroDB API key" default=""/>
+    </category>
+    <category label="Submissions">
+        <setting id="enable_submissions" type="bool" label="$ADDON[plugin.video.tidb 32024]" default="false"/>
+    </category>
+    <category label="Debug">
+        <setting id="debug_logging" type="bool" label="Verbose logging (kodi.log)" default="false"/>
+        <setting id="debug_osd" type="bool" label="On-screen debug notifications" default="false"/>
+    </category>
+</settings>

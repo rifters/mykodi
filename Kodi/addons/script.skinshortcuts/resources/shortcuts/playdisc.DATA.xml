@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+	<shortcut>
+		<defaultID>31485</defaultID>
+		<label>[B][COLOR$VAR[C2]]E[/COLOR][COLOR$VAR[C3]]JECT[/COLOR] [COLOR$VAR[C2]]T[/COLOR][COLOR$VAR[C3]]RAY[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>EjectTray()</action>
+	</shortcut>
+	<shortcut>
+		<defaultID>600</defaultID>
+		<label>[B][COLOR$VAR[C2]]R[/COLOR][COLOR$VAR[C3]]IP[/COLOR] [COLOR$VAR[C2]]C[/COLOR][COLOR$VAR[C3]]D[/COLOR][/B]</label>
+		<label2 />
+		<icon />
+		<thumb />
+		<action>RipCD</action>
+		<visible>System.HasMediaAudioCD</visible>
+	</shortcut>
+</shortcuts>

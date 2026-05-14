@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <defaultcontrol always="true">503</defaultcontrol>
+    <animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+    <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+    <coordinates>
+        <left>310</left>
+        <top>240</top>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <!-- Background overlay (subtle darkening) -->
+            <control type="image">
+                <description>Background Overlay</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1300</width>
+                <height>600</height>
+                <texture colordiffuse="F0000000">white.png</texture>
+            </control>
+
+            <!-- Glassy band background (modern look) -->
+            <control type="image">
+                <description>Glassy Background Band</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1300</width>
+                <height>600</height>
+                <texture colordiffuse="DD000000">white.png</texture>
+            </control>
+
+            <!-- Gradient overlay for depth -->
+            <control type="image">
+                <description>Gradient Overlay</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1300</width>
+                <height>600</height>
+                <texture colordiffuse="50FFFFFF">gradient.png</texture>
+            </control>
+
+            <!-- Header Label -->
+            <control type="label" id="101">
+                <description>Header Label</description>
+                <left>40</left>
+                <top>30</top>
+                <width>1220</width>
+                <height>60</height>
+                <font>font30_title</font>
+                <label>Trakt Authentication</label>
+                <textcolor>orchid</textcolor>
+                <align>center</align>
+                <aligny>center</aligny>
+            </control>
+
+            <!-- Separator line -->
+            <control type="image">
+                <description>Header Separator</description>
+                <left>40</left>
+                <top>100</top>
+                <width>1220</width>
+                <height>2</height>
+                <texture colordiffuse="55FFFFFF">white.png</texture>
+            </control>
+
+            <!-- QR Code Image -->
+            <control type="image" id="501">
+                <description>QR Code Image</description>
+                <left>60</left>
+                <top>140</top>
+                <width>320</width>
+                <height>320</height>
+                <aspectratio aligny="center" align="center">keep</aspectratio>
+                <!-- Border around QR code -->
+                <bordertexture border="8" colordiffuse="55FFFFFF">white.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+
+            <!-- Message Text -->
+            <control type="textbox" id="502">
+                <description>Message Text</description>
+                <left>420</left>
+                <top>140</top>
+                <width>820</width>
+                <height>320</height>
+                <font>font14</font>
+                <textcolor>white</textcolor>
+                <align>left</align>
+                <aligny>top</aligny>
+                <shadowcolor>FF000000</shadowcolor>
+            </control>
+
+            <!-- Close Button -->
+            <control type="button" id="503">
+                <description>Close Button</description>
+                <left>520</left>
+                <top>500</top>
+                <width>260</width>
+                <height>60</height>
+                <font>font16_title</font>
+                <textcolor>white</textcolor>
+                <focusedcolor>black</focusedcolor>
+                <label>Close</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <texturefocus colordiffuse="FFEDC8FF">white.png</texturefocus>
+                <texturenofocus colordiffuse="33EDC8FF">white.png</texturenofocus>
+            </control>
+        </control>
+    </controls>
+</window>
+

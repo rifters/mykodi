@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">9001</defaultcontrol>
+	<coordinates>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+
+	<controls>
+		<!-- Background with darkened overlay -->
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>$INFO[Window.Property(fanart)]</texture>
+			<aspectratio>scale</aspectratio>
+			<fadetime>400</fadetime>
+		</control>
+
+		<!-- Dark overlay -->
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture colordiffuse="88000000">colors/white.png</texture>
+		</control>
+
+		<!-- Main container -->
+		<control type="group">
+			<posx>100</posx>
+			<posy>100</posy>
+			<width>1720</width>
+			<height>880</height>
+
+			<!-- Panel background -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1720</width>
+				<height>880</height>
+				<texture colordiffuse="AA000000">colors/white.png</texture>
+			</control>
+
+			<!-- Header -->
+			<control type="label">
+				<posx>40</posx>
+				<posy>30</posy>
+				<width>1520</width>
+				<height>60</height>
+				<font>font30</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>TV Evening Playlist</label>
+			</control>
+
+			<!-- The Crew Icon -->
+			<control type="image">
+				<posx>1600</posx>
+				<posy>20</posy>
+				<width>80</width>
+				<height>80</height>
+				<texture>special://home/addons/plugin.video.thecrew/icon.png</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+
+			<!-- Total runtime info -->
+			<control type="label" id="9100">
+				<posx>40</posx>
+				<posy>90</posy>
+				<width>1640</width>
+				<height>40</height>
+				<font>font14</font>
+				<textcolor>FFAAAAAA</textcolor>
+				<label>$INFO[Window.Property(runtime_text)]</label>
+			</control>
+
+			<!-- Episode list with posters -->
+			<control type="list" id="9001">
+				<posx>40</posx>
+				<posy>150</posy>
+				<width>1640</width>
+				<height>580</height>
+				<onup>9001</onup>
+				<ondown>9001</ondown>
+				<onleft>9002</onleft>
+				<onright>9002</onright>
+				<pagecontrol>9050</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="145">
+					<!-- Episode background -->
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1640</width>
+						<height>140</height>
+						<texture colordiffuse="22FFFFFF">colors/white.png</texture>
+					</control>
+
+					<!-- Poster thumbnail -->
+					<control type="image">
+						<posx>10</posx>
+						<posy>10</posy>
+						<width>80</width>
+						<height>120</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>scale</aspectratio>
+					</control>
+
+					<!-- Episode number badge -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>15</posy>
+						<width>100</width>
+						<height>30</height>
+						<font>font12</font>
+						<textcolor>FFCCCCCC</textcolor>
+						<label>$INFO[ListItem.Property(episode_num)]</label>
+					</control>
+
+					<!-- Show title -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>45</posy>
+						<width>1500</width>
+						<height>30</height>
+						<font>font16_title</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+					<!-- Episode title -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>80</posy>
+						<width>1500</width>
+						<height>25</height>
+						<font>font13</font>
+						<textcolor>FFAAAAAA</textcolor>
+						<label>$INFO[ListItem.Property(episode_title)]</label>
+					</control>
+
+					<!-- Runtime -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>110</posy>
+						<width>200</width>
+						<height>20</height>
+						<font>font12</font>
+						<textcolor>FF888888</textcolor>
+						<label>$INFO[ListItem.Property(runtime)] min</label>
+					</control>
+				</itemlayout>
+
+				<focusedlayout height="145">
+					<!-- Focused episode background -->
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1640</width>
+						<height>140</height>
+						<texture colordiffuse="66E0B0FF">colors/white.png</texture>
+						<bordertexture border="2" colordiffuse="FFE0B0FF">colors/white.png</bordertexture>
+						<bordersize>2</bordersize>
+					</control>
+
+					<!-- Poster thumbnail -->
+					<control type="image">
+						<posx>10</posx>
+						<posy>10</posy>
+						<width>80</width>
+						<height>120</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>scale</aspectratio>
+					</control>
+
+					<!-- Episode number badge -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>15</posy>
+						<width>100</width>
+						<height>30</height>
+						<font>font12</font>
+						<textcolor>FFE0B0FF</textcolor>
+						<label>$INFO[ListItem.Property(episode_num)]</label>
+					</control>
+
+					<!-- Show title -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>45</posy>
+						<width>1500</width>
+						<height>30</height>
+						<font>font16_title</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+
+					<!-- Episode title -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>80</posy>
+						<width>1500</width>
+						<height>25</height>
+						<font>font13</font>
+						<textcolor>FFDDDDDD</textcolor>
+						<label>$INFO[ListItem.Property(episode_title)]</label>
+					</control>
+
+					<!-- Runtime -->
+					<control type="label">
+						<posx>110</posx>
+						<posy>110</posy>
+						<width>200</width>
+						<height>20</height>
+						<font>font12</font>
+						<textcolor>FFAAAAAA</textcolor>
+						<label>$INFO[ListItem.Property(runtime)] min</label>
+					</control>
+				</focusedlayout>
+			</control>
+
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="9050">
+				<posx>1690</posx>
+				<posy>150</posy>
+				<width>12</width>
+				<height>580</height>
+				<texturesliderbackground colordiffuse="33FFFFFF">colors/white.png</texturesliderbackground>
+				<texturesliderbar colordiffuse="88FFFFFF">colors/white.png</texturesliderbar>
+				<texturesliderbarfocus colordiffuse="FFFFFFFF">colors/white.png</texturesliderbarfocus>
+				<orientation>vertical</orientation>
+			</control>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9002">
+				<posx>400</posx>
+				<posy>760</posy>
+				<width>920</width>
+				<height>80</height>
+				<itemgap>20</itemgap>
+				<orientation>horizontal</orientation>
+				<onup>9001</onup>
+				<ondown>9001</ondown>
+				<align>center</align>
+				<usecontrolcoords>true</usecontrolcoords>
+
+				<!-- Play All button -->
+				<control type="button" id="9010">
+					<width>280</width>
+					<height>60</height>
+					<font>font14</font>
+					<textcolor>FFFFFFFF</textcolor>
+					<focusedcolor>FF000000</focusedcolor>
+					<label>Play Entire Playlist</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturefocus colordiffuse="FFE0B0FF">colors/white.png</texturefocus>
+					<texturenofocus colordiffuse="44FFFFFF">colors/white.png</texturenofocus>
+					<onclick>SetProperty(user_action,play_all)</onclick>
+					<onclick>Dialog.Close(all,true)</onclick>
+				</control>
+
+				<!-- Play First button -->
+				<control type="button" id="9011">
+					<width>280</width>
+					<height>60</height>
+					<font>font14</font>
+					<textcolor>FFFFFFFF</textcolor>
+					<focusedcolor>FF000000</focusedcolor>
+					<label>Play First Episode Only</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturefocus colordiffuse="FFE0B0FF">colors/white.png</texturefocus>
+					<texturenofocus colordiffuse="44FFFFFF">colors/white.png</texturenofocus>
+					<onclick>SetProperty(user_action,play_first)</onclick>
+					<onclick>Dialog.Close(all,true)</onclick>
+				</control>
+
+				<!-- Cancel button -->
+				<control type="button" id="9012">
+					<width>280</width>
+					<height>60</height>
+					<font>font14</font>
+					<textcolor>FFAAAAAA</textcolor>
+					<focusedcolor>FF000000</focusedcolor>
+					<label>Cancel</label>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturefocus colordiffuse="FF666666">colors/white.png</texturefocus>
+					<texturenofocus colordiffuse="22FFFFFF">colors/white.png</texturenofocus>
+					<onclick>SetProperty(user_action,cancel)</onclick>
+					<onclick>Dialog.Close(all,true)</onclick>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

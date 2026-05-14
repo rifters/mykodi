@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">200</defaultcontrol>
+    <animation effect="slide" start="250,0" end="0,0" time="300">WindowOpen</animation>
+    <animation effect="slide" start="0,0" end="250,0" time="300">WindowClose</animation>
+
+    <controls>
+        <!-- Right-side vertical bar (250px width, full height) -->
+        <control type="group">
+            <posx>1670</posx>
+            <posy>0</posy>
+            <width>250</width>
+            <height>1080</height>
+
+            <!-- Semi-transparent dark background (50% opacity) -->
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>250</width>
+                <height>1080</height>
+                <texture colordiffuse="80000000">Buttons/pixel.png</texture>
+            </control>
+
+            <!-- The Crew Logo at top -->
+            <control type="image">
+                <posx>25</posx>
+                <posy>30</posy>
+                <width>200</width>
+                <height>80</height>
+                <texture>icon.png</texture>
+                <aspectratio>keep</aspectratio>
+            </control>
+
+            <label>$INFO[Window.Property(status.message)]</label>
+                <align>center</align>
+                <wrapmultiline>true</wrapmultiline>
+            </control>
+
+            <!-- Progress/Counter (shows countdown or source count) -->
+            <control type="label" id="102">
+                <posx>10</posx>
+                <posy>220</posy>
+                <width>230</width>
+                <height>60</height>
+                <font>font30</font>
+                <textcolor>FFE0B0FF</textcolor>
+                <label>$INFO[Window.Property(status.counter)]</label>
+                <align>center</align>
+            </control>
+
+            <!-- Spinner/Progress indicator (optional - disabled for now) -->
+            <control type="image" id="103">
+                <posx>75</posx>
+                <posy>300</posy>
+                <width>100</width>
+                <height>100</height>
+                <texture>icon.png</texture>
+                <aspectratio>keep</aspectratio>
+                <visible>!String.IsEmpty(Window.Property(status.spinning))</visible>
+                <animation effect="rotate" start="0" end="360" center="auto" time="2000" loop="true" condition="true">Conditional</animation>
+            </control>
+
+            <!-- Bottom section: Episode info -->
+            <control type="group">
+                <posx>0</posx>
+                <posy>680</posy>
+                <width>250</width>
+                <height>400</height>
+                <visible>!String.IsEmpty(Window.Property(status.show))</visible>
+
+                <!-- Episode Poster -->
+                <control type="image" id="110">
+                    <posx>25</posx>
+                    <posy>0</posy>
+                    <width>200</width>
+                    <height>134</height>
+                    <texture>$INFO[Window.Property(status.poster)]</texture>
+                    <aspectratio>scale</aspectratio>
+                </control>
+
+                <!-- Show Title -->
+                <control type="label" id="111">
+                    <posx>25</posx>
+                    <posy>145</posy>
+                    <width>200</width>
+                    <height>30</height>
+                    <font>font12</font>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <label>$INFO[Window.Property(status.show)]</label>
+                    <align>center</align>
+                    <wrapmultiline>true</wrapmultiline>
+                    <scroll>true</scroll>
+                </control>
+
+                <!-- Episode Title -->
+                <control type="label" id="112">
+                    <posx>25</posx>
+                    <posy>180</posy>
+                    <width>200</width>
+                    <height>25</height>
+                    <font>font10</font>
+                    <textcolor>FFE0B0FF</textcolor>
+                    <label>$INFO[Window.Property(status.episode)]</label>
+                    <align>center</align>
+                    <scroll>true</scroll>
+                </control>
+
+                <!-- Button Group -->
+                <control type="grouplist" id="5000">
+                    <posx>25</posx>
+                    <posy>225</posy>
+                    <width>200</width>
+                    <height>150</height>
+                    <orientation>vertical</orientation>
+                    <align>center</align>
+                    <itemgap>10</itemgap>
+
+                    <!-- Play Now / Skip Countdown Button -->
+                    <control type="button" id="200">
+                        <width>200</width>
+                        <height>45</height>
+                        <label>Play Now</label>
+                        <font>font12</font>
+                        <align>center</align>
+                        <visible>!String.IsEmpty(Window.Property(status.show_play_button))</visible>
+                        <onclick>SetProperty(status.action, play)</onclick>
+                        <texturefocus colordiffuse="40FFFFFF" border="3">Buttons/pixel.png</texturefocus>
+                        <texturenofocus colordiffuse="40FFFFFF" border="3">Buttons/pixelng</texturenofocus>
+                        <texturenofocus colordiffuse="40FFFFFF" border="3">white.png</texturenofocus>
+                    </control>
+
+                    <!-- Cancel Button -->
+                    <control type="button" id="201">
+                        <width>200</width>
+                        <height>45</height>
+                        <label>Cancel</label>
+                        <font>font12</font>
+                        <align>center</align>
+                        <onclick>SetProperty(status.action, cancel)</onclick>
+                        <texturefocus colordiffuse="FFFF4444" border="3">Buttons/pixel.png</texturefocus>
+                        <texturenofocus colordiffuse="40FFFFFF" border="3">Buttons/pixel.png</texturenofocus>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

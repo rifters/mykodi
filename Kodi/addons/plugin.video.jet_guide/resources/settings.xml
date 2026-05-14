@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="Debug">
+        <setting id="debug_logging" type="bool" label="Enable Debug Logging" default="false"/>
+    </category>
+    <category label="Ticker">
+        <setting id="ticker_interval" type="labelenum" label="Ticker Update Interval (seconds)" values="30|60|120|180|240|300" default="300"/>
+    </category>
+    <category label="30000">
+        <!-- <setting id="timezone" type="labelenum" label="30001" values="PDT|MDT|CDT|EDT|PST|MST|CST|EST|GUIDE TEST|GMT" default="PDT"/> -->
+        <!-- <setting id="dst_enabled" type="bool" label="30002" default="false"/> -->
+        <setting id="time_format" type="labelenum" label="30022" values="12h|24h" default="24h"/>
+    </category>
+    <category label="LiveScore Alerts">
+        <setting id="livescore_alerts_enabled" type="bool" label="Enable LiveScore Alerts Service" default="false"/>
+    </category>
+    <category label="30003">
+        <setting id="m3u8_url" type="text" label="30004" option="hidden" visible="true" default="https://magnetic.website/jet/playlists/titan.m3u8"/>
+        <setting id="xmltv_url" type="text" label="30005" option="hidden" visible="true"  default="https://magnetic.website/jet/epg/merged_epg.xml"/>
+    </category>
+    <category label="30006">
+        <setting id="m3u8_url_2" type="text" label="30007" option="hidden" visible="true"  default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/sports_schedule/playlist/schedule.m3u8"/>
+        <setting id="xmltv_url_2" type="text" label="30008" option="hidden" visible="true"  default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/sports_schedule/playlist/epg.xml"/>
+    </category>
+    <category label="Sports Guide">
+        <setting id="ppv_url"type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_ppv.json"/>
+        <setting id="include_ppv" type="bool" label="PPV" default="true"/>
+        <setting id="nba_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_nba.json"/>
+        <setting id="include_nba" type="bool" label="NBA" default="true"/>
+        <setting id="ufc_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_ufc.json"/>
+        <setting id="include_ufc" type="bool" label="UFC" default="true"/>
+        <setting id="boxing_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_boxing.json"/>
+        <setting id="include_boxing" type="bool" label="Boxing" default="true"/>
+        <setting id="nfl_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_nfl.json"/>
+        <setting id="include_nfl" type="bool" label="NFL" default="true"/>
+        <setting id="mlb_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_mlb.json"/>
+        <setting id="include_mlb" type="bool" label="MLB" default="true"/>
+        <setting id="nhl_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_nhl.json"/>
+        <setting id="include_nhl" type="bool" label="NHL" default="true"/>
+        <setting id="basketball_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_basketball.json"/>
+        <setting id="include_basketball" type="bool" label="Basketball" default="true"/>
+        <setting id="ice_hockey_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_ice_hockey.json"/>
+        <setting id="include_ice_hockey" type="bool" label="Ice Hockey" default="true"/>
+        <setting id="ncaaf_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_ncaaf.json"/>
+        <setting id="include_ncaaf" type="bool" label="NCAAF" default="true"/>
+        <setting id="ncaab_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_ncaab.json"/>
+        <setting id="include_ncaab" type="bool" label="NCAAB" default="true"/>
+        <setting id="ncaa_baseball_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_ncaa_baseball.json"/>
+        <setting id="include_ncaa_baseball" type="bool" label="NCAA Baseball" default="true"/>
+        <setting id="wrestling_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_wrestling.json"/>
+        <setting id="include_wrestling" type="bool" label="Wrestling" default="true"/>
+        <setting id="soccer_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_soccer.json"/>
+        <setting id="include_soccer" type="bool" label="Soccer" default="true"/>
+        <setting id="england_soccer_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_england_soccer.json"/>
+        <setting id="include_england_soccer" type="bool" label="England Soccer" default="true"/>
+        <setting id="mls_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_mls.json"/>
+        <setting id="include_mls" type="bool" label="MLS" default="true"/>
+        <setting id="athletics_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_athletics.json"/>
+        <setting id="include_athletics" type="bool" label="Athletics" default="true"/>
+        <setting id="aussie_rules_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_aussie_rules.json"/>
+        <setting id="include_aussie_rules" type="bool" label="Aussie Rules" default="true"/>
+        <setting id="bowling_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_bowling.json"/>
+        <setting id="include_bowling" type="bool" label="Bowling" default="true"/>
+        <setting id="cfl_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_cfl.json"/>
+        <setting id="include_cfl" type="bool" label="CFL" default="true"/>
+        <setting id="cricket_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_cricket.json"/>
+        <setting id="include_cricket" type="bool" label="Cricket" default="true"/>
+        <setting id="cycling_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_cycling.json"/>
+        <setting id="include_cycling" type="bool" label="Cycling" default="true"/>
+        <setting id="darts_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_darts.json"/>
+        <setting id="include_darts" type="bool" label="Darts" default="true"/>
+        <setting id="futsal_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_futsal.json"/>
+        <setting id="include_futsal" type="bool" label="Futsal" default="true"/>
+        <setting id="gaa_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_gaa.json"/>
+        <setting id="include_gaa" type="bool" label="GAA" default="true"/>
+        <setting id="golf_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_golf.json"/>
+        <setting id="include_golf" type="bool" label="Golf" default="true"/>
+        <setting id="gymnastics_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_gymnastics.json"/>
+        <setting id="include_gymnastics" type="bool" label="Gymnastics" default="true"/>
+        <setting id="handball_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_handball.json"/>
+        <setting id="include_handball" type="bool" label="Handball" default="true"/>
+        <setting id="horse_racing_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_horse_racing.json"/>
+        <setting id="include_horse_racing" type="bool" label="Horse Racing" default="true"/>
+        <setting id="lacrosse_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_lacrosse.json"/>
+        <setting id="include_lacrosse" type="bool" label="Lacrosse" default="true"/>
+        <setting id="motorsport_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_motorsport.json"/>
+        <setting id="include_motorsport" type="bool" label="Motorsport" default="true"/>
+        <setting id="rugby_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_rugby.json"/>
+        <setting id="include_rugby" type="bool" label="Rugby" default="true"/>
+        <setting id="sailing_boating_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_sailing_boating.json"/>
+        <setting id="include_sailing_boating" type="bool" label="Sailing/Boating" default="true"/>
+        <setting id="snooker_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_snooker.json"/>
+        <setting id="include_snooker" type="bool" label="Snooker" default="true"/>
+        <setting id="squash_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_squash.json"/>
+        <setting id="include_squash" type="bool" label="Squash" default="true"/>
+        <setting id="tennis_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_tennis.json"/>
+        <setting id="include_tennis" type="bool" label="Tennis" default="true"/>
+        <setting id="volleyball_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_volleyball.json"/>
+        <setting id="include_volleyball" type="bool" label="Volleyball" default="true"/>
+        <setting id="water_sports_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_water_sports.json"/>
+        <setting id="include_water_sports" type="bool" label="Water Sports" default="true"/>
+        <setting id="espn_plus_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/espn_plus_guide.json"/>
+        <setting id="include_espn_plus" type="bool" label="ESPN+" default="true"/>
+        <setting id="events_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/events_guide.json"/>
+        <setting id="include_events" type="bool" label="Events" default="true"/>
+
+        <!--
+
+        <setting id="alpine_ski_url" type="text" visible="false" default="https://magnetic.website/MAD_TITAN_SPORTS/SPORTS/LEAGUE/titansports_alpine_ski.json"/>
+        <setting id="include_alpine_ski" type="bool" label="Alpine Ski" default="true"/>
+
+        <setting id="auto_record" type="bool" label="Auto Record" default="false"/>
+        <setting id="recording_quality" type="list" label="Recording Quality" default="high">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </setting>
+
+         -->
+    </category>
+    <category label="Last Watched">
+        <setting id="max_last_watched" type="slider" label="30024" default="10" range="5,1,20" option="int"/>
+        <setting id="clear_last_watched" type="action" label="30025" action="RunPlugin(plugin://plugin.video.tvguide/?action=clear_last_watched)"/>
+    </category>
+    <category label="External Players">
+        <setting id="ffmpeg_path" type="file" label="Path to ffmpeg executable" default="C:\\ffmpeg\\bin\\ffmpeg.exe"/>
+        <setting id="mpv_path" type="file" label="Path to mpv executable" default="C:\\Users\\home\\Desktop\\mpv_player\\mpv.exe"/>
+    </category>
+    <!-- <category label="Android Players (Termux)">
+        <setting id="android_mpv_path" type="text" label="Android mpv path (Termux)" default="/data/data/com.termux/files/usr/bin/mpv"/>
+        <setting id="android_recording_path" type="text" label="Android recording folder" default="/data/data/com.termux/files/home/recordings"/>
+    </category> -->
+    <category label="Recording">
+        <setting id="recording_path" type="folder" label="Default recording save folder" default="C:\\Users\\home\\Videos"/>
+    </category>
+    <category label="YouTube Guide">
+        <setting id="youtube_sleep_time" type="labelenum" label="Sleep time between videos (seconds)" values="1|2|3|4|5|6|7|8|9|10" default="5"/>
+    </category>
+</settings>

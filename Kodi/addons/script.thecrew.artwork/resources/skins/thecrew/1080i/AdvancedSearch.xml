@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>200</defaultcontrol>
+    <onload>SetFocus(200)</onload>
+
+    <controls>
+        <!-- Fullscreen dark overlay -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture colordiffuse="DD000000">white.png</texture>
+        </control>
+
+        <!-- Main dialog panel (centered) -->
+        <control type="group">
+            <left>460</left>
+            <top>140</top>
+            <width>1000</width>
+            <height>800</height>
+
+            <!-- Background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1000</width>
+                <height>800</height>
+                <texture colordiffuse="FF1a1a1a">white.png</texture>
+                <bordertexture border="8">border.png</bordertexture>
+                <bordersize>8</bordersize>
+            </control>
+
+            <!-- Header with logo and title -->
+            <control type="group">
+                <left>0</left>
+                <top>0</top>
+                <width>1000</width>
+                <height>80</height>
+
+                <!-- Header background -->
+                <control type="image">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1000</width>
+                    <height>80</height>
+                    <texture colordiffuse="FF2a2a2a">white.png</texture>
+                </control>
+
+                <!-- Logo -->
+                <control type="image">
+                    <left>30</left>
+                    <top>15</top>
+                    <width>50</width>
+                    <height>50</height>
+                    <texture>icon.png</texture>
+                </control>
+
+                <!-- Title -->
+                <control type="label">
+                    <left>100</left>
+                    <top>15</top>
+                    <width>880</width>
+                    <height>50</height>
+                    <font>font30_title</font>
+                    <textcolor>white</textcolor>
+                    <label>Advanced Search</label>
+                    <aligny>center</aligny>
+                </control>
+            </control>
+
+            <!-- Content area -->
+            <control type="group">
+                <left>40</left>
+                <top>100</top>
+                <width>920</width>
+                <height>580</height>
+
+                <!-- Keyword Label -->
+                <control type="label">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>200</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <label>Title Keyword:</label>
+                    <aligny>center</aligny>
+                </control>
+
+                <!-- Keyword Edit (ID 200) -->
+                <control type="edit" id="200">
+                    <left>220</left>
+                    <top>0</top>
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <hinttext>Enter keyword...</hinttext>
+                    <ondown>204</ondown>
+                    <onup>102</onup>
+                </control>
+
+                <!-- Genre Label -->
+                <control type="label">
+                    <left>0</left>
+                    <top>60</top>
+                    <width>200</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <label>Genres:</label>
+                    <aligny>center</aligny>
+                </control>
+
+                <!-- Genre Button (ID 204) - Opens multiselect -->
+                <control type="button" id="204">
+                    <left>220</left>
+                    <top>60</top>
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Select Genres...</label>
+                    <texturefocus colordiffuse="FF3498db">Buttons/btn_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FF333333">Buttons/btn_nofocus.png</texturenofocus>
+                    <ondown>201</ondown>
+                    <onup>200</onup>
+                </control>
+
+                <!-- Year From Label -->
+                <control type="label">
+                    <left>0</left>
+                    <top>120</top>
+                    <width>200</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <label>Year From:</label>
+                    <aligny>center</aligny>
+                </control>
+
+                <!-- Year From Edit (ID 201) -->
+                <control type="edit" id="201">
+                    <left>220</left>
+                    <top>120</top>
+                    <width>300</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <hinttext>1900</hinttext>
+                    <ondown>202</ondown>
+                    <onup>204</onup>
+                </control>
+
+                <!-- Year To Label -->
+                <control type="label">
+                    <left>540</left>
+                    <top>120</top>
+                    <width>80</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <label>To:</label>
+                    <aligny>center</aligny>
+                </control>
+
+                <!-- Year To Edit (ID 202) -->
+                <control type="edit" id="202">
+                    <left>630</left>
+                    <top>120</top>
+                    <width>270</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <hinttext>2024</hinttext>
+                    <ondown>203</ondown>
+                    <onup>201</onup>
+                </control>
+
+                <!-- Min Rating Label -->
+                <control type="label">
+                    <left>0</left>
+                    <top>180</top>
+                    <width>200</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <label>Minimum Rating:</label>
+                    <aligny>center</aligny>
+                </control>
+
+                <!-- Rating Edit (ID 203) - Enter 0-10 -->
+                <control type="edit" id="203">
+                    <left>220</left>
+                    <top>180</top>
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <hinttext>0.0 - 10.0</hinttext>
+                    <ondown>205</ondown>
+                    <onup>202</onup>
+                </control>
+
+                <!-- Sort By Label -->
+                <control type="label">
+                    <left>0</left>
+                    <top>240</top>
+                    <width>200</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <label>Sort By:</label>
+                    <aligny>center</aligny>
+                </control>
+
+                <!-- Sort Button (ID 205) - Opens selection -->
+                <control type="button" id="205">
+                    <left>220</left>
+                    <top>240</top>
+                    <width>680</width>
+                    <height>40</height>
+                    <font>font13</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Popularity</label>
+                    <texturefocus colordiffuse="FF3498db">Buttons/btn_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FF333333">Buttons/btn_nofocus.png</texturenofocus>
+                    <ondown>100</ondown>
+                    <onup>203</onup>
+                </control>
+
+                <!-- Help text -->
+                <control type="textbox">
+                    <left>0</left>
+                    <top>300</top>
+                    <width>920</width>
+                    <height>80</height>
+                    <font>font12</font>
+                    <textcolor>AA999999</textcolor>
+                    <label>Fill in any combination of filters above. Leave fields empty to ignore them. Click "Search" to find matching content, or "Save Filter" to save this search for later use.</label>
+                    <align>center</align>
+                </control>
+
+            </control>
+
+            <!-- Button row -->
+            <control type="group">
+                <left>100</left>
+                <top>700</top>
+                <width>800</width>
+                <height>60</height>
+
+                <!-- Search Button (ID 100) -->
+                <control type="button" id="100">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>240</width>
+                    <height>50</height>
+                    <font>font13_title</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Search</label>
+                    <texturefocus colordiffuse="FF1abc9c">Buttons/btn_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FF333333">Buttons/btn_nofocus.png</texturenofocus>
+                    <onleft>102</onleft>
+                    <onright>101</onright>
+                    <onup>205</onup>
+                    <ondown>200</ondown>
+                </control>
+
+                <!-- Save Filter Button (ID 101) -->
+                <control type="button" id="101">
+                    <left>280</left>
+                    <top>0</top>
+                    <width>240</width>
+                    <height>50</height>
+                    <font>font13_title</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Save Filter</label>
+                    <texturefocus colordiffuse="FF3498db">Buttons/btn_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FF333333">Buttons/btn_nofocus.png</texturenofocus>
+                    <onleft>100</onleft>
+                    <onright>102</onright>
+                    <onup>205</onup>
+                    <ondown>200</ondown>
+                </control>
+
+                <!-- Cancel Button (ID 102) -->
+                <control type="button" id="102">
+                    <left>560</left>
+                    <top>0</top>
+                    <width>240</width>
+                    <height>50</height>
+                    <font>font13_title</font>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <label>Cancel</label>
+                    <texturefocus colordiffuse="FFe74c3c">Buttons/btn_focus.png</texturefocus>
+                    <texturenofocus colordiffuse="FF333333">Buttons/btn_nofocus.png</texturenofocus>
+                    <onleft>101</onleft>
+                    <onright>100</onright>
+                    <onup>205</onup>
+                    <ondown>200</ondown>
+                </control>
+
+            </control>
+
+        </control>
+
+    </controls>
+</window>

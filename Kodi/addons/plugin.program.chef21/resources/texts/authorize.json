@@ -1,0 +1,82 @@
+{
+    "Install And Authorize Addons": {
+        "icon": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
+        "items": [
+            {
+                "name": "- Install The Supported Addons You Use Here",
+                "items": [
+            {
+                "name": "Install FEN Light (DEBRID ONLY)",
+                "url": "installaddon(plugin.video.fenlight)"
+            },			
+            {
+                "name": "Install Seren (DEBRID ONLY)",
+                "url": "installaddon(plugin.video.seren)"
+            },
+            {
+                "name": "Install Umbrella (DEBRID ONLY)",
+                "url": "installaddon(plugin.video.umbrella)"
+            },
+            {
+                "name": "Install POV (DEBRID ONLY)",
+                "url": "installaddon(plugin.video.pov)"
+            },
+            {
+                "name": "Install Salts Redux (Debrid ONLY)",
+                "url": "installaddon(plugin.video.sallts)"
+            },			
+            {
+                "name": "Install The Crew (Debrid ONLY)",
+                "url": "installaddon(plugin.video.thecrew)"
+            }
+                ]
+            },
+            {
+                "name": "- Use Account Manager to Authorize Your Debrid Account",
+                "items": [
+                    {
+                        "name": "Open Account Manager",
+                        "url": "Addon.OpenSettings(script.module.acctmgr)"
+                    }
+                ]
+            },
+            {
+                "name": "- Authorize Trakt Accounts",
+                "items": [
+            {
+                "name": "TMDBH Trakt",
+                "url": "RunScript(plugin.video.themoviedb.helper,authenticate_trakt)"
+            },		
+            {
+                "name": "Fen Light AM Trakt",
+                "url": "RunPlugin(plugin://plugin.video.fenlight/?mode=open_settings)"
+            },			
+            {
+                "name": "Seren Trakt",
+                "url": "RunPlugin(plugin://plugin.video.seren/?action=authTrakt)"
+            },
+            {
+                "name": "Umbrella Trakt",
+                "url": "RunPlugin(plugin://plugin.video.umbrella/?action=traktAuth)"
+            },
+            {
+                "name": "POV Trakt",
+                "url": "RunPlugin(plugin://plugin.video.pov/?mode=myservices)"
+            },
+            {
+                "name": "Salts Redux Trakt",
+                "url": "RunPlugin(plugin://plugin.video.sallts/?mode=myservices"
+            },			
+            {
+                "name": "The Crew Trakt",
+                "url": "RunPlugin(plugin://plugin.video.thecrew/?action=authTrakt)"
+            },
+            {
+                "name": "Kodi Trakt Addon",
+                "url": "RunScript(script.trakt,action=auth_info)"
+            }			
+                ]
+            }
+        ]
+    }
+}

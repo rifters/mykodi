@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.lbnt" name="Lbnt Repository" version="0.0.1" provider-name="lbnt">
+    <extension point="xbmc.addon.repository" name="Lbnt Repository">
+      <dir>
+        <info compressed="false">https://raw.githubusercontent.com/lbnt/repository.lbnt/main/addons/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/lbnt/repository.lbnt/main/addons/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/lbnt/repository.lbnt/main/addons/</datadir>
+      </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Lbnt Addon repository</summary>
+        <description>Lbnt Addon repository</description>
+        <disclaimer/>
+        <platform>all</platform>
+    </extension>
+</addon>

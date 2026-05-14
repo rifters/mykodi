@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>100</defaultcontrol>
+    <onload>SetFocus(100)</onload>
+
+    <controls>
+        <!-- Fullscreen backdrop from property -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture>$INFO[Window.Property(tvevening.fanart)]</texture>
+            <aspectratio>scale</aspectratio>
+        </control>
+
+        <!-- Dark overlay (53% opacity) -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>1080</height>
+            <texture colordiffuse="88000000">white.png</texture>
+        </control>
+
+        <!-- Right panel group -->
+        <control type="group">
+            <left>1260</left>
+            <top>0</top>
+            <width>660</width>
+            <height>1080</height>
+
+            <!-- Pure black glass background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>660</width>
+                <height>1080</height>
+                <texture colordiffuse="AA000000">white.png</texture>
+            </control>
+
+            <!-- Logo (centered, 50x50) -->
+            <control type="image">
+                <left>305</left>
+                <top>50</top>
+                <width>50</width>
+                <height>50</height>
+                <texture>icon.png</texture>
+            </control>
+
+            <!-- Title label -->
+            <control type="label" id="201">
+                <left>20</left>
+                <top>110</top>
+                <width>620</width>
+                <height>40</height>
+                <label>MY TV EVENING</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font13_title</font>
+                <textcolor>FFE6B8F5</textcolor>
+            </control>
+
+            <!-- Subtitle -->
+            <control type="label" id="202">
+                <left>20</left>
+                <top>160</top>
+                <width>620</width>
+                <height>30</height>
+                <label>Enter Duration (minutes)</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font12</font>
+                <textcolor>BBFFFFFF</textcolor>
+            </control>
+
+            <!-- Value display area -->
+            <control type="image">
+                <left>80</left>
+                <top>210</top>
+                <width>500</width>
+                <height>80</height>
+                <texture colordiffuse="22E6B8F5">white.png</texture>
+            </control>
+
+            <!-- Value label -->
+            <control type="label" id="200">
+                <left>80</left>
+                <top>210</top>
+                <width>500</width>
+                <height>80</height>
+                <label></label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font30_title</font>
+                <textcolor>FFE6B8F5</textcolor>
+            </control>
+
+            <!-- Number pad group -->
+            <control type="group">
+                <left>130</left>
+                <top>320</top>
+                <width>400</width>
+                <height>440</height>
+
+                <!-- Row 1: 1, 2, 3 -->
+                <control type="button" id="101">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>103</onleft>
+                    <onright>102</onright>
+                    <onup>113</onup>
+                    <ondown>104</ondown>
+                </control>
+
+                <control type="button" id="102">
+                    <left>140</left>
+                    <top>0</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>101</onleft>
+                    <onright>103</onright>
+                    <onup>113</onup>
+                    <ondown>105</ondown>
+                </control>
+
+                <control type="button" id="103">
+                    <left>280</left>
+                    <top>0</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>102</onleft>
+                    <onright>101</onright>
+                    <onup>113</onup>
+                    <ondown>106</ondown>
+                </control>
+
+                <!-- Row 2: 4, 5, 6 -->
+                <control type="button" id="104">
+                    <left>0</left>
+                    <top>90</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>106</onleft>
+                    <onright>105</onright>
+                    <onup>101</onup>
+                    <ondown>107</ondown>
+                </control>
+
+                <control type="button" id="105">
+                    <left>140</left>
+                    <top>90</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>104</onleft>
+                    <onright>106</onright>
+                    <onup>102</onup>
+                    <ondown>108</ondown>
+                </control>
+
+                <control type="button" id="106">
+                    <left>280</left>
+                    <top>90</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>105</onleft>
+                    <onright>104</onright>
+                    <onup>103</onup>
+                    <ondown>109</ondown>
+                </control>
+
+                <!-- Row 3: 7, 8, 9 -->
+                <control type="button" id="107">
+                    <left>0</left>
+                    <top>180</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>109</onleft>
+                    <onright>108</onright>
+                    <onup>104</onup>
+                    <ondown>100</ondown>
+                </control>
+
+                <control type="button" id="108">
+                    <left>140</left>
+                    <top>180</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>107</onleft>
+                    <onright>109</onright>
+                    <onup>105</onup>
+                    <ondown>100</ondown>
+                </control>
+
+                <control type="button" id="109">
+                    <left>280</left>
+                    <top>180</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>108</onleft>
+                    <onright>107</onright>
+                    <onup>106</onup>
+                    <ondown>100</ondown>
+                </control>
+
+                <!-- Row 4: 0 (centered) -->
+                <control type="button" id="100">
+                    <left>140</left>
+                    <top>270</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFE6B8F5">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33E6B8F5">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>110</onleft>
+                    <onright>111</onright>
+                    <onup>108</onup>
+                    <ondown>112</ondown>
+                </control>
+
+                <!-- Backspace button (left of 0) -->
+                <control type="button" id="110">
+                    <left>0</left>
+                    <top>270</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFFFAA00">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33FFAA00">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>111</onleft>
+                    <onright>100</onright>
+                    <onup>107</onup>
+                    <ondown>112</ondown>
+                </control>
+
+                <!-- Clear button (right of 0) -->
+                <control type="button" id="111">
+                    <left>280</left>
+                    <top>270</top>
+                    <width>120</width>
+                    <height>80</height>
+                    <label></label>
+                    <font>font30_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFFFAA00">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33FFAA00">white.png</texturenofocus>
+                    <textcolor>FF000000</textcolor>
+                    <focusedcolor>FF000000</focusedcolor>
+                    <onleft>100</onleft>
+                    <onright>110</onright>
+                    <onup>109</onup>
+                    <ondown>112</ondown>
+                </control>
+
+                <!-- OK button (green) -->
+                <control type="button" id="112">
+                    <left>0</left>
+                    <top>360</top>
+                    <width>190</width>
+                    <height>70</height>
+                    <label></label>
+                    <font>font13_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FF55AA55">white.png</texturefocus>
+                    <texturenofocus colordiffuse="3355AA55">white.png</texturenofocus>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <onleft>113</onleft>
+                    <onright>113</onright>
+                    <onup>100</onup>
+                    <ondown>101</ondown>
+                </control>
+
+                <!-- Cancel button (red) -->
+                <control type="button" id="113">
+                    <left>210</left>
+                    <top>360</top>
+                    <width>190</width>
+                    <height>70</height>
+                    <label></label>
+                    <font>font13_title</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <texturefocus colordiffuse="FFAA5555">white.png</texturefocus>
+                    <texturenofocus colordiffuse="33AA5555">white.png</texturenofocus>
+                    <textcolor>FFFFFFFF</textcolor>
+                    <focusedcolor>FFFFFFFF</focusedcolor>
+                    <onleft>112</onleft>
+                    <onright>112</onright>
+                    <onup>100</onup>
+                    <ondown>101</ondown>
+                </control>
+            </control>
+
+            <!-- Instruction hint -->
+            <control type="label">
+                <left>20</left>
+                <top>1000</top>
+                <width>620</width>
+                <height>30</height>
+                <label>Enter minutes for your TV Evening duration</label>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>font10</font>
+                <textcolor>66FFFFFF</textcolor>
+            </control>
+        </control>
+    </controls>
+</window>

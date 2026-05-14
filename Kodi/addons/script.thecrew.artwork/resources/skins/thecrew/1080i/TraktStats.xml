@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>101</defaultcontrol>
+    <animation effect="fade" time="300">WindowOpen</animation>
+    <animation effect="fade" time="300">WindowClose</animation>
+
+    <controls>
+        <!-- Transparent top margin -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>200</height>
+            <texture>-</texture>
+        </control>
+
+        <!-- Main band container with glassy background -->
+        <control type="group">
+            <left>0</left>
+            <top>200</top>
+            <width>1920</width>
+            <height>680</height>
+
+            <!-- Solid dark background to block menu behind -->
+            <control type="image">
+                <description>Solid Background</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>680</height>
+                <texture colordiffuse="F5000000">white.png</texture>
+            </control>
+
+            <!-- Subtle texture overlay -->
+            <control type="image">
+                <description>Texture Overlay</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>680</height>
+                <texture colordiffuse="20FFFFFF">button-nofocus.png</texture>
+            </control>
+
+            <!-- Gradient overlay for depth -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>680</height>
+                <texture colordiffuse="30FFFFFF">button-focus.png</texture>
+            </control>
+
+            <!-- Content container -->
+            <control type="group">
+                <left>120</left>
+                <top>40</top>
+
+                <!-- Title -->
+                <control type="label">
+                    <description>Title</description>
+                    <left>750</left>
+                    <top>10</top>
+                    <width>420</width>
+                    <height>40</height>
+                    <font>font40</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>orchid</textcolor>
+                    <label>Trakt Statistics</label>
+                </control>
+
+                <!-- Username subtitle -->
+                <control type="label">
+                    <description>Username</description>
+                    <left>750</left>
+                    <top>55</top>
+                    <width>420</width>
+                    <height>30</height>
+                    <font>font18</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[Window.Property(username)]</label>
+                </control>
+
+                <!-- Three-column stats layout -->
+                <control type="group">
+                    <left>60</left>
+                    <top>120</top>
+
+                    <!-- Left Card: Movies -->
+                    <control type="group">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>480</width>
+                        <height>380</height>
+
+                        <!-- Card background -->
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>480</width>
+                            <height>380</height>
+                            <texture colordiffuse="44000000">button-focus.png</texture>
+                        </control>
+
+                        <!-- Cyan accent bar -->
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>480</width>
+                            <height>5</height>
+                            <texture colordiffuse="cyan">white.png</texture>
+                        </control>
+
+                        <!-- Movies header -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>20</top>
+                            <width>440</width>
+                            <height>40</height>
+                            <font>font30</font>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textcolor>cyan</textcolor>
+                            <label>Movies</label>
+                        </control>
+
+                        <!-- Movies watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>80</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Movies Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>80</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(movies_watched)]</label>
+                        </control>
+
+                        <!-- Total plays -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>120</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Total Plays:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>120</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(movies_plays)]</label>
+                        </control>
+
+                        <!-- Hours watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>160</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Hours Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>160</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(movies_hours)]</label>
+                        </control>
+
+                        <!-- Days watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>200</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Days Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>200</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(movies_days)]</label>
+                        </control>
+
+                        <!-- Collection count -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>240</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>In Collection:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>240</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(movies_collected)]</label>
+                        </control>
+
+                        <!-- Ratings count -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>280</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Rated:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>280</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(movies_ratings)]</label>
+                        </control>
+
+                        <!-- Progress bar -->
+                        <control type="progress">
+                            <left>40</left>
+                            <top>330</top>
+                            <width>400</width>
+                            <height>12</height>
+                            <info>Window.Property(movies_percent)</info>
+                            <texturebg colordiffuse="33FFFFFF">white.png</texturebg>
+                            <lefttexture>-</lefttexture>
+                            <midtexture colordiffuse="cyan">white.png</midtexture>
+                            <righttexture>-</righttexture>
+                        </control>
+                    </control>
+
+                    <!-- Middle Card: Shows -->
+                    <control type="group">
+                        <left>520</left>
+                        <top>0</top>
+                        <width>480</width>
+                        <height>380</height>
+
+                        <!-- Card background -->
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>480</width>
+                            <height>380</height>
+                            <texture colordiffuse="44000000">button-focus.png</texture>
+                        </control>
+
+                        <!-- Lime accent bar -->
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>480</width>
+                            <height>5</height>
+                            <texture colordiffuse="lime">white.png</texture>
+                        </control>
+
+                        <!-- Shows header -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>20</top>
+                            <width>440</width>
+                            <height>40</height>
+                            <font>font30</font>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textcolor>lime</textcolor>
+                            <label>TV Shows</label>
+                        </control>
+
+                        <!-- Shows watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>100</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Shows Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>100</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(shows_watched)]</label>
+                        </control>
+
+                        <!-- Collection count -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>160</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>In Collection:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>160</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(shows_collected)]</label>
+                        </control>
+
+                        <!-- Ratings count -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>220</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Rated:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>220</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(shows_ratings)]</label>
+                        </control>
+                    </control>
+
+                    <!-- Right Card: Episodes -->
+                    <control type="group">
+                        <left>1040</left>
+                        <top>0</top>
+                        <width>480</width>
+                        <height>380</height>
+
+                        <!-- Card background -->
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>480</width>
+                            <height>380</height>
+                            <texture colordiffuse="44000000">button-focus.png</texture>
+                        </control>
+
+                        <!-- White accent bar -->
+                        <control type="image">
+                            <left>0</left>
+                            <top>0</top>
+                            <width>480</width>
+                            <height>5</height>
+                            <texture colordiffuse="white">white.png</texture>
+                        </control>
+
+                        <!-- Episodes header -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>20</top>
+                            <width>440</width>
+                            <height>40</height>
+                            <font>font30</font>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Episodes</label>
+                        </control>
+
+                        <!-- Episodes watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>80</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Episodes Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>80</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(episodes_watched)]</label>
+                        </control>
+
+                        <!-- Total plays -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>120</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Total Plays:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>120</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(episodes_plays)]</label>
+                        </control>
+
+                        <!-- Hours watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>160</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Hours Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>160</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(episodes_hours)]</label>
+                        </control>
+
+                        <!-- Days watched -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>200</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Days Watched:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>200</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(episodes_days)]</label>
+                        </control>
+
+                        <!-- Collection count -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>240</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>In Collection:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>240</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(episodes_collected)]</label>
+                        </control>
+
+                        <!-- Ratings count -->
+                        <control type="label">
+                            <left>20</left>
+                            <top>280</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>white</textcolor>
+                            <label>Rated:</label>
+                        </control>
+
+                        <control type="label">
+                            <left>20</left>
+                            <top>280</top>
+                            <width>440</width>
+                            <height>30</height>
+                            <font>font18</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>orchid</textcolor>
+                            <label>$INFO[Window.Property(episodes_ratings)]</label>
+                        </control>
+
+                        <!-- Progress bar -->
+                        <control type="progress">
+                            <left>40</left>
+                            <top>330</top>
+                            <width>400</width>
+                            <height>12</height>
+                            <info>Window.Property(episodes_percent)</info>
+                            <texturebg colordiffuse="33FFFFFF">white.png</texturebg>
+                            <lefttexture>-</lefttexture>
+                            <midtexture colordiffuse="white">white.png</midtexture>
+                            <righttexture>-</righttexture>
+                        </control>
+                    </control>
+                </control>
+
+                <!-- Total watch time summary -->
+                <control type="group">
+                    <left>550</left>
+                    <top>530</top>
+
+                    <control type="label">
+                        <left>0</left>
+                        <top>0</top>
+                        <width>520</width>
+                        <height>30</height>
+                        <font>font30</font>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <textcolor>orchid</textcolor>
+                        <label>Total Watch Time</label>
+                    </control>
+
+                    <control type="label">
+                        <left>0</left>
+                        <top>40</top>
+                        <width>260</width>
+                        <height>30</height>
+                        <font>font18</font>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window.Property(total_hours)] hours</label>
+                    </control>
+
+                    <control type="label">
+                        <left>260</left>
+                        <top>40</top>
+                        <width>260</width>
+                        <height>30</height>
+                        <font>font18</font>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textcolor>white</textcolor>
+                        <label> ($INFO[Window.Property(total_days)] days)</label>
+                    </control>
+                </control>
+
+                <!-- Close button -->
+                <control type="button" id="101">
+                    <description>Close button</description>
+                    <left>750</left>
+                    <top>630</top>
+                    <width>120</width>
+                    <height>40</height>
+                    <font>font18</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>orchid</focusedcolor>
+                    <texturefocus colordiffuse="orchid">button-focus.png</texturefocus>
+                    <texturenofocus colordiffuse="33FFFFFF">button-nofocus.png</texturenofocus>
+                    <label>Close</label>
+                    <texturefocus colordiffuse="44FFFFFF">button-focus.png</texturefocus>
+                    <texturenofocus colordiffuse="22FFFFFF">button-nofocus.png</texturenofocus>
+                </control>
+
+            </control>
+        </control>
+
+    </controls>
+</window>

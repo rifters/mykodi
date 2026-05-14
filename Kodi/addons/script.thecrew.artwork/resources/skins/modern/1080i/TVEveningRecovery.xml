@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <animation effect="fade" time="300">WindowOpen</animation>
+    <animation effect="fade" time="300">WindowClose</animation>
+
+    <controls>
+        <!-- Transparent top margin -->
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1920</width>
+            <height>290</height>
+            <texture>-</texture>
+        </control>
+
+
+        <!-- Main band container with glassy background -->
+        <control type="group">
+            <left>0</left>
+            <top>290</top>
+            <width>1920</width>
+            <height>500</height>
+
+            <!-- Glassy background band -->
+            <control type="image">
+                <description>Glassy Band Background</description>
+                <left>0</left>
+                <top>0</top>
+                <width>1920</width>
+                <height>500</height>
+                <texture colordiffuse="CC000000">white.png</texture>
+            </control>
+
+            <!-- Content container -->
+            <control type="group">
+                <left>360</left>
+                <top>80</top>
+
+                <!-- The Crew Logo -->
+                <control type="image">
+                    <description>The Crew Logo</description>
+                    <left>460</left>
+                    <top>0</top>
+                    <width>200</width>
+                    <height>66</height>
+                    <texture>icon.png</texture>
+                    <aspectratio aligny="center">keep</aspectratio>
+                </control>
+
+                <!-- Recovery Title -->
+                <control type="label" id="9001">
+                    <description>Recovery Title</description>
+                    <left>0</left>
+                    <top>100</top>
+                    <width>1200</width>
+                    <height>50</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font35</font>
+                    <textcolor>orchid</textcolor>
+                    <label>TV Evening Session Found</label>
+                </control>
+
+                <!-- Info Message Line 1 -->
+                <control type="label" id="9002">
+                    <description>Info Message 1</description>
+                    <left>0</left>
+                    <top>170</top>
+                    <width>1200</width>
+                    <height>40</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font16</font>
+                    <textcolor>white</textcolor>
+                    <label>$INFO[Window().Property(message1)]</label>
+                </control>
+
+                <!-- Info Message Line 2 -->
+                <control type="label" id="9003">
+                    <description>Info Message 2</description>
+                    <left>0</left>
+                    <top>210</top>
+                    <width>1200</width>
+                    <height>40</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>font14</font>
+                    <textcolor>AAFFFFFF</textcolor>
+                    <label>$INFO[Window().Property(message2)]</label>
+                </control>
+
+                <!-- Button group -->
+                <control type="grouplist" id="9100">
+                    <description>Button Group</description>
+                    <left>180</left>
+                    <top>280</top>
+                    <width>840</width>
+                    <height>80</height>
+                    <itemgap>20</itemgap>
+                    <orientation>horizontal</orientation>
+                    <onup>9100</onup>
+                    <ondown>9100</ondown>
+
+                    <!-- Continue Button -->
+                    <control type="button" id="9101">
+                        <description>Continue Button</description>
+                        <width>260</width>
+                        <height>60</height>
+                        <label>Continue Playing</label>
+                        <font>font14</font>
+                        <textcolor>white</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <texturefocus border="5" colordiffuse="FFEDC8FF">white.png</texturefocus>
+                        <texturenofocus border="5" colordiffuse="AA8B7AA0">white.png</texturenofocus>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <onleft>9103</onleft>
+                        <onright>9102</onright>
+                    </control>
+
+                    <!-- Start Fresh Button -->
+                    <control type="button" id="9102">
+                        <description>Start Fresh Button</description>
+                        <width>260</width>
+                        <height>60</height>
+                        <label>Start Fresh</label>
+                        <font>font14</font>
+                        <textcolor>white</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <texturefocus border="5" colordiffuse="FFEDC8FF">white.png</texturefocus>
+                        <texturenofocus border="5" colordiffuse="AA8B7AA0">white.png</texturenofocus>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <onleft>9101</onleft>
+                        <onright>9103</onright>
+                    </control>
+
+                    <!-- Delete Playlist Button -->
+                    <control type="button" id="9103">
+                        <description>Delete Playlist Button</description>
+                        <width>260</width>
+                        <height>60</height>
+                        <label>Delete Playlist</label>
+                        <font>font14</font>
+                        <textcolor>white</textcolor>
+                        <focusedcolor>black</focusedcolor>
+                        <texturefocus border="5" colordiffuse="FFCC4444">white.png</texturefocus>
+                        <texturenofocus border="5" colordiffuse="AA8B7AA0">white.png</texturenofocus>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <onleft>9102</onleft>
+                        <onright>9101</onright>
+                    </control>
+                </control>
+            </control>
+        </control>
+
+        <!-- Transparent bottom margin -->
+        <control type="image">
+            <left>0</left>
+            <top>790</top>
+            <width>1920</width>
+            <height>290</height>
+            <texture>-</texture>
+        </control>
+    </controls>
+</window>

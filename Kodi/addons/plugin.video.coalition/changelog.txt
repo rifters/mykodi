@@ -1,0 +1,28 @@
+  [COLOR cyan][B]Version 1.8.1[/B][/COLOR]
+
+- Size Of addon Reduced.
+- Scrapers Fixed.
+- Bitmagnet
+- Piratebay.
+- Torrentsdb.
+- MediaFusion.
+- Art Updated.
+- Instances Changed To Direct.
+- Aiostreams Removed No Longer Stable.
+- Torz Updated.
+- zilean Updated.
+- Torrento Updated.
+- Comet Updated.
+- DMM Updated.
+- Auth Your [COLORcyan]PREMIUMIZE[/COLOR] Service Within The Addon Then reboot Kodi.
+- All dead Scrapers Removed.
+- Instances Changed To Direct.
+- Internal Menus Fixed.
+- Trakt Fixed.
+- Bug Fixes.
+- More 4K Links.
+- Loading Times Fixed
+
+
+
+

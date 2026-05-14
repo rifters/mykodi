@@ -1,0 +1,10 @@
+{
+  "users/giladg/lists/top-10-movies-of-the-week/items?": {
+    "type": "tmdb",
+    "endpoint": "tmdb_movie_trending_day"
+  },
+  "users/movistapp/lists/walt-disney-animated-feature-films/items?": {
+    "type": "tmdb",
+    "endpoint": "tmdb_movie_popular"
+  }
+}
